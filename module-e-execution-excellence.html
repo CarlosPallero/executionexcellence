@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Execution Excellence — E of the AGILE Leadership Framework</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0E0A0A;
+  --surface:#1C1010;
+  --surface-2:#221414;
+  --surface-3:#281818;
+  --text-1:#F2EAE0;
+  --text-2:#C8B8B0;
+  --text-3:#8A7870;
+  --gold:#C9A84C;
+  --gold-dim:#6B5520;
+  --gold-s:rgba(201,168,76,.07);
+  /* Module E — deep executive red */
+  --e:#C94A3A;
+  --e-light:#E87060;
+  --e-bright:#F5A090;
+  --e-subtle:rgba(201,74,58,.10);
+  --e-border:rgba(201,74,58,.32);
+  /* Supporting */
+  --amber:#D4854A;
+  --amber-l:#EBA870;
+  --amber-s:rgba(212,133,74,.10);
+  --green:#3A9E6E;
+  --green-l:#6EC49A;
+  --green-s:rgba(58,158,110,.10);
+  --blue:#4A82C9;
+  --blue-l:#7AAEE8;
+  --blue-s:rgba(74,130,201,.10);
+  --purple:#8A5DC9;
+  --purple-l:#B08AE8;
+  --teal:#3A9EAE;
+  --teal-l:#72CDD8;
+  --border:#2E1A18;
+  --border-2:#3E2820;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --mono:'DM Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text-1);font-family:var(--sans);line-height:1.7;overflow-x:hidden;}
+#progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--e-light);z-index:1000;transition:width .1s linear;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:0 3.5rem;height:60px;display:flex;align-items:center;justify-content:space-between;background:rgba(14,10,10,.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(46,26,24,.7);}
+.nav-brand{display:flex;align-items:center;gap:1.2rem;}
+.nav-pills{display:flex;gap:3px;}
+.np{font-family:var(--mono);font-size:.7rem;width:22px;height:22px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);color:var(--text-3);}
+.np.done{border-color:var(--gold-dim);color:var(--gold-dim);}
+.np.active-e{background:var(--e);border-color:var(--e);color:#fff;font-weight:600;}
+.nav-brand-label{font-family:var(--serif);font-size:.88rem;color:var(--text-2);}
+nav ul{display:flex;list-style:none;gap:1.5rem;}
+nav a{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);text-decoration:none;transition:color .2s;font-family:var(--mono);}
+nav a:hover,nav a.active{color:var(--e-light);}
+
+/* UTILITIES */
+.eyebrow{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:.9rem;margin-bottom:1.4rem;}
+.eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);flex-shrink:0;}
+.section-title{font-family:var(--serif);font-size:clamp(2rem,3.2vw,3rem);font-weight:700;line-height:1.15;max-width:680px;}
+.section-title em{font-style:italic;color:var(--e-light);}
+.section-header{margin-bottom:5rem;}
+.body-text{font-size:.97rem;color:var(--text-2);line-height:1.78;}
+.lm{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-3);display:flex;align-items:center;gap:.6rem;margin-bottom:.9rem;}
+.lm::before{content:'';width:14px;height:1px;background:var(--text-3);}
+.fade-in{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+.fade-in.visible{opacity:1;transform:none;}
+.sp{padding:9rem 6rem;}
+.sp-s{padding:9rem 6rem;background:var(--surface);}
+.sb{background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--e);padding:1.6rem 2rem;display:flex;align-items:flex-start;gap:1.5rem;margin-bottom:4rem;}
+.sb-tag{font-family:var(--mono);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--e-light);white-space:nowrap;padding-top:.15rem;}
+.sb-text{font-size:.9rem;color:var(--text-2);line-height:1.65;}
+.sb-text strong{color:var(--text-1);}
+.qc{padding:2rem 2.5rem;background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--e-light);margin-top:1.5rem;}
+.qc p{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--text-1);line-height:1.65;}
+.qc-attr{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-top:.8rem;display:flex;align-items:center;gap:.6rem;}
+.qc-attr::before{content:'';width:14px;height:1px;background:var(--text-3);}
+.rc{background:var(--gold-s);border:1px solid rgba(201,168,76,.2);padding:2rem 2.2rem;margin-top:1.5rem;}
+.ri{font-size:1.1rem;margin-bottom:.8rem;opacity:.8;}
+.rq{font-family:var(--serif);font-size:1.1rem;font-style:italic;color:var(--text-1);line-height:1.6;}
+.ws{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--surface-3);padding:2rem 6rem;display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:center;}
+.ws-l{font-family:var(--mono);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--e-light);white-space:nowrap;}
+.ws-t{font-size:.92rem;color:var(--text-2);line-height:1.7;}
+.ws-t strong{color:var(--text-1);}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;flex-direction:column;padding-top:60px;position:relative;overflow:hidden;}
+#hero::before{content:'';position:absolute;top:0;right:0;width:55%;height:100%;background:linear-gradient(135deg,var(--surface) 0%,rgba(28,16,16,.85) 100%);z-index:0;}
+#hero::after{content:'';position:absolute;bottom:10%;right:10%;width:300px;height:300px;border-radius:50%;border:1px solid rgba(201,74,58,.1);z-index:0;}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;flex:1;position:relative;z-index:1;}
+.hero-left{padding:7rem 5rem 5rem 6rem;display:flex;flex-direction:column;justify-content:center;}
+.hero-mod-tag{display:inline-flex;align-items:center;gap:.75rem;background:var(--e-subtle);border:1px solid var(--e-border);padding:.4rem 1rem .4rem .6rem;margin-bottom:2.5rem;width:fit-content;}
+.hero-mod-badge{background:var(--e);color:#fff;font-family:var(--mono);font-size:.75rem;font-weight:600;padding:.2rem .55rem;}
+.hero-mod-text{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--e-light);}
+.hero-title{font-family:var(--serif);font-size:clamp(2.8rem,4.2vw,5rem);font-weight:700;line-height:1.06;margin-bottom:1.4rem;}
+.hero-title em{font-style:italic;color:var(--e-light);}
+.hero-sub{font-size:1.05rem;color:var(--text-2);max-width:480px;line-height:1.78;margin-bottom:3rem;}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border);border-left:1px solid var(--border);}
+.hs{padding:1.4rem 1.6rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);}
+.hs-l{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);margin-bottom:.35rem;}
+.hs-v{font-family:var(--serif);font-size:1.2rem;color:var(--e-light);font-weight:700;line-height:1.25;}
+.hero-right{display:flex;align-items:center;justify-content:center;padding:4rem;position:relative;}
+.agile-map{width:100%;max-width:380px;}
+.am-title{font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-3);margin-bottom:1.8rem;text-align:center;}
+.ar{display:grid;grid-template-columns:48px 1fr;align-items:stretch;border:1px solid var(--border);margin-bottom:-1px;}
+.ar.active-e{border-color:var(--e);background:var(--e-subtle);z-index:1;position:relative;}
+.ar.done{opacity:.55;}
+.al{display:flex;align-items:center;justify-content:center;border-right:1px solid var(--border);font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--text-3);padding:.8rem 0;}
+.ar.active-e .al{background:var(--e);border-color:var(--e);color:#fff;}
+.ar.done .al{color:var(--gold-dim);}
+.ai{padding:.9rem 1.2rem;}
+.an{font-size:.82rem;font-weight:600;color:var(--text-2);}
+.ar.active-e .an{color:var(--e-light);}
+.av{font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);}
+.ar.active-e .av{color:var(--e);}
+.hero-bottom{background:var(--surface);border-top:1px solid var(--border);padding:1.2rem 6rem;display:flex;align-items:center;gap:3rem;position:relative;z-index:1;}
+.hb-label{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);white-space:nowrap;flex-shrink:0;}
+.pill{padding:.28rem .85rem;border:1px solid var(--border);font-size:.7rem;color:var(--text-2);}
+.hb-pills{display:flex;gap:.6rem;flex-wrap:wrap;}
+
+/* MANIFESTO */
+#manifesto{padding:9rem 6rem;background:var(--bg);position:relative;overflow:hidden;}
+#manifesto::before{content:'"';position:absolute;top:-4rem;left:3rem;font-family:var(--serif);font-size:28rem;color:rgba(201,74,58,.04);line-height:1;pointer-events:none;}
+.mq{font-family:var(--serif);font-size:clamp(1.7rem,2.8vw,2.5rem);font-weight:400;font-style:italic;line-height:1.5;color:var(--text-1);margin-bottom:2rem;max-width:900px;}
+.mq strong{font-weight:700;color:var(--e-light);font-style:normal;}
+.ma{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);display:flex;align-items:center;gap:1rem;}
+.ma::before{content:'';display:block;width:22px;height:1px;background:var(--text-3);}
+.ib-grid{display:grid;grid-template-columns:repeat(4,1fr);margin-top:5rem;border:1px solid var(--border);}
+.ib{padding:2rem 1.8rem;border-right:1px solid var(--border);}
+.ib:last-child{border-right:none;}
+.ib-num{font-family:var(--serif);font-size:2.4rem;font-weight:700;color:var(--e-light);line-height:1;margin-bottom:.5rem;}
+.ib-label{font-size:.85rem;color:var(--text-2);line-height:1.55;margin-bottom:.4rem;}
+.ib-source{font-family:var(--mono);font-size:.53rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);}
+
+/* AGILE FULL */
+.afb{border:1px solid var(--border);}
+.afr{display:grid;grid-template-columns:54px 1fr auto;align-items:center;padding:1.4rem 1.8rem;border-bottom:1px solid var(--border);gap:1.5rem;}
+.afr:last-child{border-bottom:none;}
+.afr.hl{background:var(--e-subtle);border-color:var(--e-border);}
+.afr.done{opacity:.55;}
+.afl{font-family:var(--serif);font-size:2rem;font-weight:700;text-align:center;color:var(--text-3);}
+.afr.hl .afl{color:var(--e-light);}
+.afr.done .afl{color:var(--gold-dim);}
+.afi h4{font-size:.95rem;font-weight:600;color:var(--text-2);margin-bottom:.18rem;}
+.afr.hl .afi h4{color:var(--text-1);}
+.afi p{font-size:.8rem;color:var(--text-3);line-height:1.5;}
+.afv{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);white-space:nowrap;text-align:right;}
+.afr.hl .afv{color:var(--e-light);}
+.afr.done .afv{color:var(--gold-dim);}
+
+/* ═══ BLOCK 1: PERSONAL PRODUCTIVITY ═══ */
+/* Eisenhower Matrix */
+.eis-matrix{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:0;border:1px solid var(--border);margin-top:2rem;}
+.eis-cell{padding:2rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.eis-cell:nth-child(2n){border-right:none;}
+.eis-cell:nth-child(3),.eis-cell:nth-child(4){border-bottom:none;}
+.eis-q{font-family:var(--mono);font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.6rem;}
+.eis-title{font-size:.95rem;font-weight:700;margin-bottom:.4rem;}
+.eis-action{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .65rem;border:1px solid;display:inline-block;margin-bottom:.8rem;}
+.eis-desc{font-size:.82rem;color:var(--text-2);line-height:1.6;}
+.eis-bg{position:absolute;bottom:-.5rem;right:.8rem;font-size:3.5rem;opacity:.06;pointer-events:none;}
+.eis-axis-x{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);text-align:center;margin-top:.6rem;}
+.eis-axis-y{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);writing-mode:vertical-rl;text-orientation:mixed;transform:rotate(180deg);margin-right:.6rem;align-self:center;}
+.eis-wrapper{display:grid;grid-template-columns:24px 1fr;gap:0;align-items:center;}
+
+/* Deep Work zones */
+.dw-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem;}
+.dw-cell{padding:2rem;background:var(--surface-2);border:1px solid var(--border);}
+.dw-icon{font-size:1.3rem;margin-bottom:.8rem;}
+.dw-name{font-size:.95rem;font-weight:600;margin-bottom:.4rem;}
+.dw-desc{font-size:.83rem;color:var(--text-2);line-height:1.6;}
+.dw-tip{font-family:var(--mono);font-size:.58rem;letter-spacing:.08em;color:var(--e-light);margin-top:.6rem;border-left:2px solid var(--e);padding-left:.6rem;line-height:1.5;}
+
+/* Personal Kanban */
+.kanban-board{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);margin-top:2rem;}
+.kb-col{border-right:1px solid var(--border);}
+.kb-col:last-child{border-right:none;}
+.kb-header{padding:1rem 1.2rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.kb-title{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;}
+.kb-count{font-family:var(--mono);font-size:.65rem;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:600;}
+.kb-body{padding:1rem;}
+.kb-card{padding:.7rem .9rem;border:1px solid var(--border);margin-bottom:.6rem;font-size:.8rem;color:var(--text-2);line-height:1.4;background:var(--surface-3);}
+.kb-card:last-child{margin-bottom:0;}
+.kb-wip{font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-top:.5rem;text-align:center;}
+
+/* Self-diagnosis test */
+.diag-test{border:1px solid var(--e-border);background:var(--e-subtle);padding:2.5rem;margin-top:3rem;}
+.dt-title{font-family:var(--mono);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--e-light);margin-bottom:.4rem;}
+.dt-sub{font-size:.88rem;color:var(--text-2);margin-bottom:2rem;}
+.dt-item{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.2rem;background:var(--surface-2);border:1px solid var(--border);margin-bottom:.6rem;}
+.dt-item:last-child{margin-bottom:0;}
+.dt-q{font-size:.88rem;color:var(--text-2);flex:1;padding-right:1rem;}
+.dt-scale{display:flex;gap:.4rem;}
+.dt-btn{width:28px;height:28px;border:1px solid var(--border);background:none;color:var(--text-3);font-family:var(--mono);font-size:.65rem;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;}
+.dt-btn:hover{border-color:var(--e);color:var(--e-light);}
+.dt-btn.sel{background:var(--e);border-color:var(--e);color:#fff;}
+.dt-result{margin-top:1.5rem;padding:1.2rem 1.5rem;background:var(--surface-2);border-left:2px solid var(--e);display:none;}
+.dt-result.show{display:block;}
+.dt-result-label{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--e-light);margin-bottom:.4rem;}
+.dt-result-text{font-size:.88rem;color:var(--text-2);line-height:1.65;}
+.dt-submit{margin-top:1.2rem;padding:.75rem 2rem;background:var(--e);border:none;color:#fff;font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .2s;}
+.dt-submit:hover{background:var(--e-light);color:var(--bg);}
+
+/* ═══ BLOCK 2: TEAM PRODUCTIVITY ═══ */
+/* OKR vs KPI */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);margin-top:2rem;}
+.cg-col{padding:2.2rem;}
+.cg-col:first-child{border-right:1px solid var(--border);}
+.cg-header{display:flex;align-items:center;gap:.8rem;margin-bottom:1.8rem;padding-bottom:1.2rem;border-bottom:1px solid var(--border);}
+.cg-title{font-size:.95rem;font-weight:600;}
+.cg-row{display:flex;align-items:flex-start;gap:.8rem;padding:.6rem 0;border-bottom:1px solid var(--border);}
+.cg-row:last-child{border-bottom:none;}
+.cg-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:.55rem;}
+.cg-text{font-size:.85rem;color:var(--text-2);line-height:1.55;}
+
+/* 4DX */
+.fdx-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);margin-top:2rem;}
+.fdx-cell{padding:1.8rem 1.5rem;border-right:1px solid var(--border);position:relative;overflow:hidden;}
+.fdx-cell:last-child{border-right:none;}
+.fdx-num{font-family:var(--serif);font-size:3.5rem;font-weight:900;opacity:.1;position:absolute;top:.3rem;right:.5rem;line-height:1;}
+.fdx-icon{font-size:1.2rem;margin-bottom:.7rem;}
+.fdx-name{font-size:.9rem;font-weight:600;margin-bottom:.3rem;}
+.fdx-full{font-family:var(--mono);font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.7rem;}
+.fdx-desc{font-size:.8rem;color:var(--text-2);line-height:1.6;}
+
+/* Execution rhythm */
+.rhythm-flow{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);margin-top:2rem;}
+.rf-cell{padding:2rem 1.6rem;border-right:1px solid var(--border);}
+.rf-cell:last-child{border-right:none;}
+.rf-period{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.5rem;}
+.rf-title{font-family:var(--serif);font-size:1.2rem;font-weight:700;margin-bottom:.8rem;}
+.rf-item{display:flex;gap:.7rem;padding:.45rem 0;border-bottom:1px solid var(--border);font-size:.83rem;color:var(--text-2);}
+.rf-item:last-child{border-bottom:none;}
+.rf-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:.55rem;}
+
+/* Aligned vs misaligned */
+.align-compare{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);margin-top:2rem;}
+.ac-col{padding:2.2rem;}
+.ac-col:first-child{border-right:1px solid var(--border);background:rgba(201,74,58,.05);}
+.ac-col:last-child{background:var(--green-s);}
+.ac-header{font-size:.95rem;font-weight:600;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border);}
+.ac-item{display:flex;gap:.8rem;padding:.55rem 0;border-bottom:1px solid var(--border);font-size:.83rem;color:var(--text-2);line-height:1.5;}
+.ac-item:last-child{border-bottom:none;}
+
+/* Execution dashboard */
+.exec-dash{border:1px solid var(--e-border);background:var(--e-subtle);padding:2.5rem;margin-top:3rem;}
+.ed-title{font-family:var(--mono);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--e-light);margin-bottom:.4rem;}
+.ed-sub{font-size:.88rem;color:var(--text-2);margin-bottom:2rem;}
+.ed-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem;}
+.ed-kpi{background:var(--surface-2);border:1px solid var(--border);padding:1.2rem;}
+.ed-kpi-label{font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:.4rem;}
+.ed-kpi-value{font-family:var(--serif);font-size:1.8rem;font-weight:700;line-height:1;margin-bottom:.2rem;}
+.ed-kpi-trend{font-family:var(--mono);font-size:.65rem;color:var(--text-3);}
+.ed-okr-row{display:grid;grid-template-columns:1fr auto auto;gap:1rem;align-items:center;padding:.8rem 1rem;background:var(--surface-2);border:1px solid var(--border);margin-bottom:.5rem;}
+.ed-okr-name{font-size:.85rem;color:var(--text-2);}
+.ed-progress{width:80px;height:6px;background:var(--border);border-radius:3px;overflow:hidden;}
+.ed-progress-fill{height:100%;border-radius:3px;transition:width .5s ease;}
+.ed-pct{font-family:var(--mono);font-size:.68rem;min-width:30px;text-align:right;}
+
+/* ═══ BLOCK 3: EMPOWERMENT ═══ */
+.psych-safety{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;margin-top:3rem;}
+.ps-ladder{display:flex;flex-direction:column;gap:0;border:1px solid var(--border);}
+.ps-rung{display:grid;grid-template-columns:60px 1fr;border-bottom:1px solid var(--border);transition:background .2s;}
+.ps-rung:last-child{border-bottom:none;}
+.ps-rung:hover{background:var(--e-subtle);}
+.ps-num{display:flex;align-items:center;justify-content:center;border-right:1px solid var(--border);font-family:var(--serif);font-size:1.5rem;font-weight:700;}
+.ps-body{padding:1.1rem 1.4rem;}
+.ps-name{font-size:.9rem;font-weight:600;margin-bottom:.2rem;}
+.ps-desc{font-size:.78rem;color:var(--text-2);line-height:1.55;}
+.ps-signal{font-family:var(--mono);font-size:.57rem;letter-spacing:.08em;color:var(--text-3);margin-top:.3rem;font-style:italic;}
+
+/* Bad vs Good empowerment */
+.bvg{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);margin-top:3rem;}
+.bvg-col{padding:2.2rem;}
+.bvg-col.bad{border-right:1px solid var(--border);background:rgba(201,74,58,.05);}
+.bvg-col.good{background:var(--green-s);}
+.bvg-header{font-size:.95rem;font-weight:600;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border);}
+.bvg-row{padding:.65rem 0;border-bottom:1px solid var(--border);font-size:.85rem;color:var(--text-2);line-height:1.5;display:flex;gap:.7rem;}
+.bvg-row:last-child{border-bottom:none;}
+
+/* Role play */
+.roleplay{border:1px solid var(--e-border);background:var(--e-subtle);padding:2.5rem;margin-top:3rem;}
+.rp-scenario{font-size:.9rem;color:var(--text-2);line-height:1.7;padding:1.2rem;background:var(--surface-2);border:1px solid var(--border);margin-bottom:1.5rem;}
+.rp-roles{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:1.5rem;}
+.rp-role{padding:1.2rem;background:var(--surface-2);border:1px solid var(--border);}
+.rp-role-title{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.4rem;}
+.rp-role-desc{font-size:.82rem;color:var(--text-2);line-height:1.55;}
+.rp-debrief{padding:1.2rem 1.5rem;background:var(--surface-2);border:1px solid var(--border);}
+.rp-debrief-label{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--e-light);margin-bottom:.7rem;}
+.rp-q{font-size:.85rem;color:var(--text-2);padding:.35rem 0;border-bottom:1px solid var(--border);}
+.rp-q:last-child{border-bottom:none;}
+
+/* ═══ BLOCK 4: MOTIVATION ═══ */
+.sdt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);margin-top:2rem;}
+.sdt-cell{padding:2.2rem 1.8rem;border-right:1px solid var(--border);}
+.sdt-cell:last-child{border-right:none;}
+.sdt-icon{font-size:1.3rem;margin-bottom:.8rem;}
+.sdt-name{font-size:.95rem;font-weight:600;margin-bottom:.3rem;}
+.sdt-full{font-family:var(--mono);font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.8rem;}
+.sdt-desc{font-size:.83rem;color:var(--text-2);line-height:1.6;margin-bottom:.8rem;}
+.sdt-action{font-size:.8rem;color:var(--text-2);border-left:2px solid;padding-left:.7rem;line-height:1.5;}
+
+/* Motivation errors */
+.mot-errors{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);margin-top:2rem;}
+.me-cell{padding:1.8rem 2rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);}
+.me-cell:nth-child(2n){border-right:none;}
+.me-cell:nth-child(5),.me-cell:nth-child(6){border-bottom:none;}
+.me-icon{font-size:1.1rem;margin-bottom:.6rem;}
+.me-error{font-size:.88rem;font-weight:600;color:var(--e-light);margin-bottom:.3rem;}
+.me-desc{font-size:.8rem;color:var(--text-2);line-height:1.6;}
+.me-fix{font-family:var(--mono);font-size:.57rem;letter-spacing:.08em;color:var(--green-l);margin-top:.5rem;border-left:2px solid var(--green);padding-left:.6rem;line-height:1.5;}
+
+/* Motivation diagnostic */
+.mot-diag{border:1px solid var(--e-border);background:var(--e-subtle);padding:2.5rem;margin-top:3rem;}
+.md-grid{display:flex;flex-direction:column;gap:.6rem;}
+.md-item{background:var(--surface-2);border:1px solid var(--border);padding:1rem 1.2rem;}
+.md-q{font-size:.88rem;color:var(--text-2);margin-bottom:.8rem;}
+.md-scale{display:flex;gap:.3rem;align-items:center;}
+.md-scale-l{font-family:var(--mono);font-size:.55rem;color:var(--text-3);}
+.md-btns{display:flex;gap:.3rem;flex:1;justify-content:center;}
+.md-btn{flex:1;max-width:32px;height:28px;border:1px solid var(--border);background:none;color:var(--text-3);font-family:var(--mono);font-size:.65rem;cursor:pointer;transition:all .2s;}
+.md-btn:hover{border-color:var(--e);color:var(--e-light);}
+.md-btn.sel{background:var(--e);border-color:var(--e);color:#fff;}
+.md-result{margin-top:1.5rem;padding:1.3rem 1.5rem;background:var(--surface-2);border-left:2px solid var(--e);display:none;}
+.md-result.show{display:block;}
+.md-r-label{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--e-light);margin-bottom:.4rem;}
+.md-r-text{font-size:.88rem;color:var(--text-2);line-height:1.65;}
+.md-submit{margin-top:1.2rem;padding:.75rem 2rem;background:var(--e);border:none;color:#fff;font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;}
+.md-submit:hover{background:var(--e-light);color:var(--bg);}
+
+/* ═══ BLOCK 5: AI & TECH ═══ */
+.ai-map{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem;}
+.ai-cat{background:var(--surface-2);border:1px solid var(--border);}
+.ai-cat-header{padding:1.2rem 1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.8rem;}
+.ai-cat-icon{font-size:1.1rem;}
+.ai-cat-name{font-size:.92rem;font-weight:600;}
+.ai-cat-body{padding:1.2rem 1.5rem;}
+.ai-tool{display:grid;grid-template-columns:90px 1fr;gap:1rem;padding:.7rem 0;border-bottom:1px solid var(--border);align-items:start;}
+.ai-tool:last-child{border-bottom:none;}
+.ai-tool-name{font-family:var(--mono);font-size:.65rem;font-weight:500;letter-spacing:.05em;color:var(--e-light);}
+.ai-tool-use{font-size:.8rem;color:var(--text-2);line-height:1.5;}
+
+/* ═══ EXEC TAKEAWAYS ═══ */
+#takeaways{padding:9rem 6rem;background:var(--bg);position:relative;overflow:hidden;}
+#takeaways::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;border-radius:50%;border:1px solid rgba(46,26,24,.8);pointer-events:none;}
+.tk-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;position:relative;z-index:1;}
+.tk-card{padding:2.5rem;background:var(--surface-2);border:1px solid var(--border);position:relative;overflow:hidden;}
+.tk-card.featured{border-color:var(--e-border);background:var(--e-subtle);}
+.tk-num{position:absolute;top:.8rem;right:1.2rem;font-family:var(--serif);font-size:4rem;font-weight:900;opacity:.06;line-height:1;}
+.tk-icon{font-size:1.3rem;margin-bottom:1rem;}
+.tk-quote{font-family:var(--serif);font-size:1.15rem;font-style:italic;line-height:1.6;color:var(--text-1);margin-bottom:1rem;}
+.tk-principle{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--e-light);margin-bottom:.5rem;}
+.tk-desc{font-size:.85rem;color:var(--text-2);line-height:1.65;}
+.tk-module{font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-top:.8rem;padding:.2rem .6rem;border:1px solid var(--border);display:inline-block;}
+
+/* LAB */
+.lab-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;margin-top:5rem;}
+.lab-card{background:var(--surface-2);border:1px solid var(--border);padding:2.5rem;position:relative;}
+.lc-bgn{position:absolute;top:.8rem;right:1.2rem;font-family:var(--serif);font-size:4.5rem;font-weight:900;color:rgba(201,74,58,.05);line-height:1;}
+.lc-phase{font-family:var(--mono);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--e-light);margin-bottom:.4rem;}
+.lc-title{font-family:var(--serif);font-size:1.2rem;font-weight:600;margin-bottom:1.4rem;}
+.lab-card ul{list-style:none;display:flex;flex-direction:column;gap:.7rem;}
+.lab-card ul li{font-size:.88rem;color:var(--text-2);padding-left:1.2rem;position:relative;line-height:1.55;}
+.lab-card ul li::before{content:'—';position:absolute;left:0;color:var(--text-3);}
+.commit-block{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);margin-top:5rem;}
+.cl-left{padding:3.5rem;border-right:1px solid var(--border);}
+.cl-left h3{font-family:var(--serif);font-size:1.5rem;margin-bottom:1.2rem;}
+.cl-left p{font-size:.9rem;color:var(--text-2);line-height:1.75;margin-bottom:1rem;}
+.cl-right{padding:3.5rem;background:var(--surface-2);}
+.ci-group{margin-bottom:1.8rem;}
+.ci-lbl{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:.6rem;display:block;}
+.ci-input{width:100%;background:var(--surface-3);border:1px solid var(--border);padding:.85rem 1.1rem;color:var(--text-1);font-family:var(--sans);font-size:.9rem;outline:none;transition:border-color .2s;resize:none;}
+.ci-input:focus{border-color:var(--e-border);}
+.ci-input::placeholder{color:var(--text-3);}
+
+/* ACCORDION */
+.accordion{border:1px solid var(--border);}
+.accordion-item{border-bottom:1px solid var(--border);}
+.accordion-item:last-child{border-bottom:none;}
+.at{width:100%;padding:1.3rem 1.8rem;display:flex;justify-content:space-between;align-items:center;background:none;border:none;cursor:pointer;color:var(--text-1);text-align:left;transition:background .2s;}
+.at:hover{background:var(--surface-2);}
+.at-label{font-size:.92rem;font-weight:500;}
+.at-icon{font-size:1rem;color:var(--text-3);transition:transform .3s;flex-shrink:0;}
+.accordion-item.open .at-icon{transform:rotate(45deg);color:var(--e-light);}
+.ab{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;padding:0 1.8rem;}
+.accordion-item.open .ab{max-height:600px;padding:0 1.8rem 1.8rem;}
+.ab p{font-size:.9rem;color:var(--text-2);line-height:1.75;}
+
+/* FOOTER */
+footer{background:var(--surface);border-top:1px solid var(--border);padding:4.5rem 6rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.fb{font-family:var(--serif);font-size:1.35rem;color:var(--e-light);margin-bottom:.8rem;}
+.fsub{font-size:.87rem;color:var(--text-2);line-height:1.65;max-width:380px;}
+.fn{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;}
+.fn a{font-size:.83rem;color:var(--text-2);text-decoration:none;padding:.35rem 0;transition:color .2s;}
+.fn a:hover{color:var(--text-1);}
+.fb-bottom{padding:1.8rem 6rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.fc{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);}
+
+/* MOBILE */
+@media(max-width:1100px){
+  nav ul{display:none;}
+  .hero-inner{grid-template-columns:1fr;}
+  .hero-right{display:none;}
+  .hero-left{padding:5rem 2.5rem;}
+  .eis-wrapper{grid-template-columns:1fr;}
+  .eis-axis-y{display:none;}
+  .psych-safety,.compare-grid,.bvg,.align-compare,.commit-block{grid-template-columns:1fr;}
+  .compare-grid .cg-col:first-child,.bvg-col.bad,.align-compare .ac-col:first-child,.cl-left{border-right:none;border-bottom:1px solid var(--border);}
+  .fdx-grid,.sdt-grid{grid-template-columns:1fr 1fr;}
+  .fdx-cell:nth-child(2n){border-right:none;}
+  .fdx-cell:nth-child(1),.fdx-cell:nth-child(2){border-bottom:1px solid var(--border);}
+  .sdt-cell:nth-child(2n){border-right:none;}
+  .sdt-cell:nth-child(3){border-top:1px solid var(--border);grid-column:1/-1;}
+  .rhythm-flow,.ai-map,.dw-grid,.lab-grid{grid-template-columns:1fr 1fr;}
+  .rf-cell:nth-child(2){border-right:none;}
+  .rf-cell:nth-child(3){border-top:1px solid var(--border);grid-column:1/-1;}
+  .ed-grid{grid-template-columns:1fr 1fr;}
+  .rp-roles{grid-template-columns:1fr;}
+  .tk-grid,.mot-errors,.ib-grid,.kanban-board{grid-template-columns:1fr 1fr;}
+  .ib:nth-child(2n),.kanban-board .kb-col:nth-child(2n){border-right:none;}
+  .ib:nth-child(1),.ib:nth-child(2){border-bottom:1px solid var(--border);}
+  section,.sp,.sp-s,#manifesto,#takeaways,footer{padding-left:2.5rem!important;padding-right:2.5rem!important;}
+  .ws{padding-left:2.5rem!important;padding-right:2.5rem!important;}
+}
+@media(max-width:700px){
+  section,.sp,.sp-s,#manifesto,#takeaways,footer{padding-left:1.4rem!important;padding-right:1.4rem!important;padding-top:5rem!important;padding-bottom:5rem!important;}
+  .ws{padding-left:1.4rem!important;padding-right:1.4rem!important;}
+  .hero-left{padding:4rem 1.4rem 3rem;}
+  .hero-stats{grid-template-columns:1fr 1fr;}
+  .hero-title{font-size:2.4rem;}
+  nav{padding:0 1.4rem;}
+  .nav-brand-label{font-size:.7rem;}
+  .fdx-grid,.sdt-grid,.rhythm-flow,.ai-map,.dw-grid,.lab-grid,.tk-grid,.mot-errors,.ib-grid,.kanban-board,.rp-roles,.ed-grid,.me-cell,.compare-grid,.bvg,.align-compare{grid-template-columns:1fr!important;}
+  .fdx-cell,.sdt-cell,.rf-cell,.ai-cat,.dw-cell,.lab-card,.tk-card,.ib,.kb-col{border-right:none!important;border-bottom:1px solid var(--border)!important;}
+  .fdx-cell:last-child,.sdt-cell:last-child,.rf-cell:last-child,.ib:last-child,.kb-col:last-child{border-bottom:none!important;}
+  .me-cell:nth-child(5),.me-cell:nth-child(6){border-bottom:none!important;}
+  .eis-matrix{grid-template-columns:1fr;}
+  .eis-cell{border-right:none!important;}
+  .eis-cell:nth-child(3){border-bottom:1px solid var(--border)!important;}
+  .commit-block{display:flex;flex-direction:column;}
+  .cl-left,.cl-right{padding:2rem 1.4rem!important;}
+  .section-header{margin-bottom:3rem;}
+  .section-title{font-size:1.85rem;}
+  .mq{font-size:1.4rem;}
+  .hero-bottom{padding:1.2rem 1.4rem;gap:1rem;flex-wrap:wrap;}
+  .fb-bottom{padding:1.4rem!important;flex-direction:column;gap:.5rem;text-align:center;}
+  footer{display:flex!important;flex-direction:column;padding:3rem 1.4rem!important;}
+  .fn{grid-template-columns:1fr 1fr;}
+  .ws{grid-template-columns:1fr;gap:1rem;}
+  .psych-safety{grid-template-columns:1fr;}
+  .cg-col:first-child{border-right:none;border-bottom:1px solid var(--border);}
+  .bvg-col.bad{border-right:none;border-bottom:1px solid var(--border);}
+}
+</style>
+</head>
+<body>
+<div id="progress-bar"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-pills">
+      <div class="np done">A</div><div class="np done">B</div>
+      <div class="np done">C</div><div class="np done">D</div>
+      <div class="np active-e">E</div>
+    </div>
+    <div class="nav-brand-label">AGILE Leadership Excellence — Module E</div>
+  </div>
+  <ul>
+    <li><a href="#block1">Personal</a></li>
+    <li><a href="#block2">Team</a></li>
+    <li><a href="#block3">Empowerment</a></li>
+    <li><a href="#block4">Motivation</a></li>
+    <li><a href="#block5">AI & Tech</a></li>
+    <li><a href="#takeaways">Takeaways</a></li>
+    <li><a href="#lab">Lab</a></li>
+  </ul>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-mod-tag">
+        <div class="hero-mod-badge">E</div>
+        <div class="hero-mod-text">AGILE Leadership Excellence · Module E of 5 · Final Module</div>
+      </div>
+      <h1 class="hero-title">Execution<br><em>Excellence</em></h1>
+      <p class="hero-sub">Strategy without execution is hallucination. Ideas without delivery are intentions. The senior leader who masters execution — personally, through teams, and through empowered people — creates an organization that doesn't just plan well. It delivers.</p>
+      <div class="hero-stats">
+        <div class="hs"><div class="hs-l">Strategic Blocks</div><div class="hs-v">5</div></div>
+        <div class="hs"><div class="hs-l">Star Tools</div><div class="hs-v" style="font-size:.82rem;">Eisenhower · OKRs<br>4DX · Deep Work</div></div>
+        <div class="hs"><div class="hs-l">Closing</div><div class="hs-v" style="font-size:.82rem;">AGILE Complete<br>A → E</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div style="position:absolute;top:1.5rem;right:1.5rem;font-family:var(--mono);font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);border:1px solid var(--border);padding:.3rem .7rem;">Leadership Excellence · Final Module</div>
+      <div class="agile-map">
+        <div class="am-title">AGILE Framework — Complete Programme</div>
+        <div class="ar done"><div class="al" style="color:var(--gold-dim);">A</div><div class="ai"><div class="an" style="color:var(--text-3);">Adaptability</div><div class="av">Completed · Module A</div></div></div>
+        <div class="ar done"><div class="al" style="color:var(--gold-dim);">B</div><div class="ai"><div class="an" style="color:var(--text-3);">Belonging & Collaboration</div><div class="av">Completed · Module B</div></div></div>
+        <div class="ar done"><div class="al" style="color:var(--gold-dim);">C</div><div class="ai"><div class="an" style="color:var(--text-3);">Coaching Leadership</div><div class="av">Completed · Module C</div></div></div>
+        <div class="ar done"><div class="al" style="color:var(--gold-dim);">D</div><div class="ai"><div class="an" style="color:var(--text-3);">Delegation & Empowerment</div><div class="av">Completed · Module D</div></div></div>
+        <div class="ar active-e"><div class="al">E</div><div class="ai"><div class="an">Execution Excellence</div><div class="av">Active · Final Module</div></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-bottom">
+    <div class="hb-label">Key Topics</div>
+    <div class="hb-pills">
+      <div class="pill">Eisenhower Matrix</div><div class="pill">Deep Work</div><div class="pill">Personal Kanban</div><div class="pill">OKRs vs KPIs</div><div class="pill">4DX Framework</div><div class="pill">Execution Rhythms</div><div class="pill">Psychological Safety</div><div class="pill">Self-Determination Theory</div><div class="pill">Drive Model</div><div class="pill">AI for Leaders</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MANIFESTO ═══ -->
+<section id="manifesto">
+  <div class="fade-in">
+    <p class="mq">Most leaders don't fail because they lack vision. They fail because they cannot <strong>convert vision into daily action</strong> — and because they haven't built the conditions under which their teams can execute with ownership, energy, and focus.</p>
+    <div class="ma">Module E — The Execution Leader's Credo</div>
+    <div class="ib-grid">
+      <div class="ib"><div class="ib-num">67%</div><div class="ib-label">of well-formulated strategies fail during execution — not due to flawed planning but due to absence of focus, accountability, and execution discipline.</div><div class="ib-source">Harvard Business Review</div></div>
+      <div class="ib"><div class="ib-num">2.5×</div><div class="ib-label">Higher productivity in leaders who practice Deep Work — protecting concentrated time for cognitively demanding tasks — versus always-on, always-reactive leaders.</div><div class="ib-source">Cal Newport / Georgetown Research</div></div>
+      <div class="ib"><div class="ib-num">3×</div><div class="ib-label">Teams with clear OKRs and regular execution rhythms outperform comparable teams without aligned goals by a factor of 3 on delivery speed and output quality.</div><div class="ib-source">Google re:Work / John Doerr</div></div>
+      <div class="ib"><div class="ib-num">76%</div><div class="ib-label">of employees in high-psychological-safety teams report willingness to go beyond their job description — the foundation of discretionary effort and execution excellence.</div><div class="ib-source">Amy Edmondson / Harvard</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ AGILE INTEGRATION ═══ -->
+<section class="sp-s fade-in">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:start;">
+    <div>
+      <div class="eyebrow">The AGILE Framework · Complete</div>
+      <h2 class="section-title">Five Pillars.<br><em>One System.</em></h2>
+      <p class="body-text" style="margin-top:2.5rem;">Execution Excellence is the fifth and final pillar — the one that converts everything learned in modules A through D into measurable organizational outcomes. Adaptability creates the agility to change direction. Belonging creates the trust to collaborate. Coaching creates the capability. Delegation creates the authority structure. Execution creates the results.</p>
+      <div class="qc"><p>"The AGILE leader is not a better version of the traditional manager. They are a fundamentally different kind of leader — one who builds organizations that <strong style="color:var(--e-light);font-style:normal;">think faster, work better, and deliver more</strong> than any individual ever could alone."</p><div class="qc-attr">AGILE Leadership Excellence — Programme Integration</div></div>
+    </div>
+    <div>
+      <div class="afb">
+        <div class="afr done"><div class="afl">A</div><div class="afi"><h4>Adaptability</h4><p>Read change signals. Reframe reality. Respond with agility.</p></div><div class="afv">Module A · Done</div></div>
+        <div class="afr done"><div class="afl" style="color:var(--gold-dim);">B</div><div class="afi"><h4>Belonging & Collaboration</h4><p>Trust, Belbin roles, psychological safety at team level.</p></div><div class="afv">Module B · Done</div></div>
+        <div class="afr done"><div class="afl" style="color:var(--gold-dim);">C</div><div class="afi"><h4>Coaching Leadership</h4><p>GROW conversations. Powerful questions. Develop capability.</p></div><div class="afv">Module C · Done</div></div>
+        <div class="afr done"><div class="afl" style="color:var(--gold-dim);">D</div><div class="afi"><h4>Delegation & Empowerment</h4><p>7 Levels. Canvas 2.0. Spreitzer. Autonomy architecture.</p></div><div class="afv">Module D · Done</div></div>
+        <div class="afr hl"><div class="afl">E</div><div class="afi"><h4>Execution Excellence — Final Module</h4><p>Personal + team productivity. Empowerment. Motivation. AI.</p></div><div class="afv">Module E · Active</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BLOCK 1: PERSONAL PRODUCTIVITY ═══ -->
+<section id="block1" class="sp">
+  <div class="section-header fade-in">
+    <div class="eyebrow">Block 1 — Personal Productivity</div>
+    <h2 class="section-title">Execution<br><em>Starts With You</em></h2>
+  </div>
+  <div class="sb fade-in">
+    <div class="sb-tag">Personal</div>
+    <p class="sb-text"><strong>The Uncomfortable Truth:</strong> You cannot build a high-execution team if you personally operate in reactive mode — bouncing between meetings, checking email every 4 minutes, and spending most of your time on what is urgent rather than what is important. Personal execution mastery is not a self-help topic. It is a strategic prerequisite for leading others at the highest level.</p>
+  </div>
+
+  <!-- Eisenhower Matrix -->
+  <div class="fade-in" style="margin-bottom:5rem;">
+    <div class="lm" style="margin-bottom:1.5rem;">The Eisenhower Matrix — Urgent vs Important</div>
+    <div class="eis-wrapper">
+      <div class="eis-axis-y">IMPORTANT →</div>
+      <div>
+        <div class="eis-matrix">
+          <div class="eis-cell" style="background:rgba(58,158,110,.07);border-top:2px solid var(--green);">
+            <div class="eis-bg">🎯</div>
+            <div class="eis-q" style="color:var(--green-l);">Quadrant 1</div>
+            <div class="eis-title" style="color:var(--green-l);">Urgent + Important</div>
+            <div class="eis-action" style="color:var(--green-l);border-color:rgba(58,158,110,.3);">DO NOW</div>
+            <div class="eis-desc">Crises, deadlines with real consequences, genuine emergencies. This quadrant should be small. If it's large, your planning and prevention systems are failing.</div>
+          </div>
+          <div class="eis-cell" style="background:var(--e-subtle);border-top:2px solid var(--e);">
+            <div class="eis-bg">🌟</div>
+            <div class="eis-q" style="color:var(--e-light);">Quadrant 2</div>
+            <div class="eis-title" style="color:var(--e-light);">Not Urgent + Important</div>
+            <div class="eis-action" style="color:var(--e-light);border-color:var(--e-border);">SCHEDULE — STAR ZONE</div>
+            <div class="eis-desc">Strategy, relationships, development, prevention, learning. This is where great leaders live. Most senior leaders spend only 20% here — it should be 60–70%.</div>
+          </div>
+          <div class="eis-cell" style="background:rgba(212,133,74,.06);">
+            <div class="eis-bg">📞</div>
+            <div class="eis-q" style="color:var(--amber-l);">Quadrant 3</div>
+            <div class="eis-title" style="color:var(--amber-l);">Urgent + Not Important</div>
+            <div class="eis-action" style="color:var(--amber-l);border-color:rgba(212,133,74,.3);">DELEGATE</div>
+            <div class="eis-desc">Interruptions, many meetings, most emails, other people's urgent requests. The greatest productivity trap for senior leaders. Ruthlessly delegate or eliminate.</div>
+          </div>
+          <div class="eis-cell" style="background:rgba(138,93,201,.05);">
+            <div class="eis-bg">📺</div>
+            <div class="eis-q" style="color:var(--purple-l);">Quadrant 4</div>
+            <div class="eis-title" style="color:var(--purple-l);">Not Urgent + Not Important</div>
+            <div class="eis-action" style="color:var(--purple-l);border-color:rgba(138,93,201,.3);">ELIMINATE</div>
+            <div class="eis-desc">Trivial busywork, irrelevant browsing, unnecessary admin. These are the activities that fill time without creating value. Remove them deliberately and unapologetically.</div>
+          </div>
+        </div>
+        <div class="eis-axis-x">← NOT URGENT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; URGENT →</div>
+      </div>
+    </div>
+    <div style="margin-top:1rem;padding:1.2rem 1.5rem;background:var(--surface-2);border:1px solid var(--border);border-left:2px solid var(--e);font-size:.85rem;color:var(--text-2);">
+      <strong style="color:var(--text-1);">Executive Insight:</strong> Research shows most senior leaders spend 40–60% of their time in Quadrant 3 (urgent but not important) — responding to others' priorities rather than driving their own. <strong style="color:var(--e-light);">The shift to Quadrant 2 dominance is the single highest-ROI change an executive can make to their personal productivity.</strong>
+    </div>
+  </div>
+
+  <!-- Deep Work + Eat the Frog -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;" class="fade-in">
+    <div>
+      <div class="lm" style="margin-bottom:1.5rem;">Deep Work — Cal Newport · The Competitive Advantage of Focus</div>
+      <div class="dw-grid">
+        <div class="dw-cell" style="border-top:2px solid var(--e);">
+          <div class="dw-icon">🧠</div>
+          <div class="dw-name" style="color:var(--e-light);">Deep Work</div>
+          <div class="dw-desc">Cognitively demanding work performed in a state of distraction-free concentration. Produces maximum value, develops real skill, and is increasingly rare — and therefore increasingly valuable.</div>
+          <div class="dw-tip">4–6 hours of deep work per day produces more value than 10 hours of shallow, fragmented work. Protect this time as if your strategic output depends on it — because it does.</div>
+        </div>
+        <div class="dw-cell" style="border-top:2px solid var(--border-2);">
+          <div class="dw-icon">📧</div>
+          <div class="dw-name" style="color:var(--text-2);">Shallow Work</div>
+          <div class="dw-desc">Logistical, non-cognitively demanding tasks performed while distracted. Easy to replicate, quickly forgotten. Most email, most routine meetings, and most administrative work falls here.</div>
+          <div class="dw-tip">Batch shallow work into defined windows. Never let it occupy your peak cognitive hours. Set email response windows (e.g., 10am and 4pm only) and communicate them explicitly.</div>
+        </div>
+      </div>
+      <div style="margin-top:1.5rem;border:1px solid var(--border);background:var(--surface-2);">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border);">
+          <div style="padding:.8rem;border-right:1px solid var(--border);text-align:center;font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);">Monastic</div>
+          <div style="padding:.8rem;border-right:1px solid var(--border);text-align:center;font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);">Bimodal</div>
+          <div style="padding:.8rem;border-right:1px solid var(--border);text-align:center;font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--e-light);">Rhythmic ★</div>
+          <div style="padding:.8rem;text-align:center;font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);">Journalistic</div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);">
+          <div style="padding:.8rem;border-right:1px solid var(--border);font-size:.75rem;color:var(--text-3);">Total isolation</div>
+          <div style="padding:.8rem;border-right:1px solid var(--border);font-size:.75rem;color:var(--text-3);">Full days deep / shallow split</div>
+          <div style="padding:.8rem;border-right:1px solid var(--border);font-size:.75rem;color:var(--e-light);">Daily fixed deep block — most practical for senior leaders</div>
+          <div style="padding:.8rem;font-size:.75rem;color:var(--text-3);">Deep work whenever time appears</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="lm" style="margin-bottom:1.5rem;">Eat the Frog + Attention Management</div>
+      <div style="border:1px solid var(--border);margin-bottom:1.5rem;">
+        <div style="padding:1.5rem;border-bottom:1px solid var(--border);background:var(--e-subtle);">
+          <div style="font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--e-light);margin-bottom:.5rem;">🐸 Eat the Frog — Brian Tracy</div>
+          <div style="font-size:.88rem;color:var(--text-2);line-height:1.65;">"If you eat a frog first thing in the morning, the rest of your day can only get better." Identify your single most important, most avoided task — and do it first. Before email. Before meetings. Before everything else.</div>
+        </div>
+        <div style="padding:1.5rem;">
+          <div style="font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:.8rem;">Protocol for Senior Leaders</div>
+          <div style="display:flex;flex-direction:column;gap:.5rem;">
+            <div style="display:flex;gap:.7rem;font-size:.83rem;color:var(--text-2);padding:.5rem 0;border-bottom:1px solid var(--border);"><span style="color:var(--e-light);font-family:var(--mono);font-size:.7rem;flex-shrink:0;padding-top:.05rem;">6:00</span>Before you open any device — decide today's frog</div>
+            <div style="display:flex;gap:.7rem;font-size:.83rem;color:var(--text-2);padding:.5rem 0;border-bottom:1px solid var(--border);"><span style="color:var(--e-light);font-family:var(--mono);font-size:.7rem;flex-shrink:0;padding-top:.05rem;">First</span>Block 90 minutes uninterrupted to eat it</div>
+            <div style="display:flex;gap:.7rem;font-size:.83rem;color:var(--text-2);padding:.5rem 0;"><span style="color:var(--e-light);font-family:var(--mono);font-size:.7rem;flex-shrink:0;padding-top:.05rem;">Rule</span>Nothing else until the frog is eaten — no exceptions</div>
+          </div>
+        </div>
+      </div>
+      <div class="lm" style="margin-bottom:1rem;">Personal Kanban — Visualize Your Work in Progress</div>
+      <div class="kanban-board">
+        <div class="kb-col">
+          <div class="kb-header"><div class="kb-title" style="color:var(--text-3);">Backlog</div><div class="kb-count" style="background:rgba(138,93,201,.15);color:var(--purple-l);">8</div></div>
+          <div class="kb-body">
+            <div class="kb-card">Q3 strategy review</div>
+            <div class="kb-card">Stakeholder mapping update</div>
+            <div class="kb-card">Team development plans</div>
+          </div>
+        </div>
+        <div class="kb-col">
+          <div class="kb-header"><div class="kb-title" style="color:var(--amber-l);">In Progress</div><div class="kb-count" style="background:var(--amber-s);color:var(--amber-l);">3</div></div>
+          <div class="kb-body">
+            <div class="kb-card" style="border-left:2px solid var(--e);">Annual budget proposal</div>
+            <div class="kb-card" style="border-left:2px solid var(--e);">Performance review cycle</div>
+            <div class="kb-card" style="border-left:2px solid var(--e);">Cross-team initiative</div>
+            <div class="kb-wip">⚠ WIP limit: 3 max</div>
+          </div>
+        </div>
+        <div class="kb-col">
+          <div class="kb-header"><div class="kb-title" style="color:var(--green-l);">Done</div><div class="kb-count" style="background:var(--green-s);color:var(--green-l);">5</div></div>
+          <div class="kb-body">
+            <div class="kb-card" style="border-left:2px solid var(--green);opacity:.7;">Talent review session</div>
+            <div class="kb-card" style="border-left:2px solid var(--green);opacity:.7;">Leadership offsite prep</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:.6rem;font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);">WIP = Work in Progress · Limit active items to 3 maximum. The discipline of saying "I will finish this before starting that" is the most powerful personal execution tool available.</div>
+    </div>
+  </div>
+
+  <!-- Self-diagnosis test -->
+  <div class="diag-test fade-in">
+    <div class="dt-title">★ Personal Productivity Diagnostic</div>
+    <div class="dt-sub">Rate yourself honestly on each statement. 1 = Never true · 5 = Always true. This is not an aspiration test — it's a reality test.</div>
+    <div class="dt-item"><span class="dt-q">I spend at least 60% of my day on Quadrant 2 (important but not urgent) activities</span><div class="dt-scale"><div class="dt-btns" id="dg1">[1][2][3][4][5]</div></div></div>
+    <div class="dt-item"><span class="dt-q">I protect at least 90 minutes of uninterrupted deep work time every day</span><div class="dt-scale"><div class="dt-btns" id="dg2">[1][2][3][4][5]</div></div></div>
+    <div class="dt-item"><span class="dt-q">I identify and complete my most important task before checking email or attending meetings</span><div class="dt-scale"><div class="dt-btns" id="dg3">[1][2][3][4][5]</div></div></div>
+    <div class="dt-item"><span class="dt-q">I have a visible system (Kanban, list, or other) that limits my active work in progress</span><div class="dt-scale"><div class="dt-btns" id="dg4">[1][2][3][4][5]</div></div></div>
+    <div class="dt-item"><span class="dt-q">I end each week having completed my single most strategically important commitment</span><div class="dt-scale"><div class="dt-btns" id="dg5">[1][2][3][4][5]</div></div></div>
+    <button class="dt-submit" onclick="scorePersonal()">Generate My Profile →</button>
+    <div class="dt-result" id="dt-result">
+      <div class="dt-result-label">Your Personal Productivity Profile</div>
+      <div class="dt-result-text" id="dt-result-text"></div>
+    </div>
+  </div>
+
+  <!-- Live dynamic -->
+  <div style="margin-top:3rem;" class="fade-in">
+    <div class="lm" style="margin-bottom:1.5rem;">⚡ Live Dynamics — Audit Your Week (8 minutes)</div>
+    <div class="accordion">
+      <div class="accordion-item"><button class="at" onclick="toggleAcc(this)"><span class="at-label">Step 1: The Time Audit (3 min) — Map where your last 5 days actually went</span><span class="at-icon">+</span></button><div class="ab"><p>Take a blank piece of paper and draw the Eisenhower Matrix. Without checking your calendar — just from memory — place your last 5 days of activity into one of the four quadrants. Be brutally honest about which quadrant your meetings, emails, and interactions actually belonged in. Most leaders are shocked by how little time ends up in Quadrant 2. This is your baseline.</p></div></div>
+      <div class="accordion-item"><button class="at" onclick="toggleAcc(this)"><span class="at-label">Step 2: The Frog Identification (2 min) — Name this week's most avoided task</span><span class="at-icon">+</span></button><div class="ab"><p>Write down the single task you have been putting off for the longest time — the one that, if completed, would have the biggest positive impact on your leadership effectiveness or your team's performance. This is your frog. Now write down: why have you been avoiding it? What specifically has been getting in the way — and is that reason legitimate or is it a rationalization?</p></div></div>
+      <div class="accordion-item"><button class="at" onclick="toggleAcc(this)"><span class="at-label">Step 3: The Deep Work Block (3 min) — Redesign tomorrow's schedule</span><span class="at-icon">+</span></button><div class="ab"><p>Open your calendar for tomorrow. Identify one 90-minute block — ideally before 10am — that you can protect as a Deep Work block. Block it in your calendar right now. Label it "Deep Work — [specific task]." Tell one other person about this block so there is accountability. The first time you successfully protect this block and use it fully for your frog, notice the difference in how you feel at the end of that morning compared to a morning of meetings.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BLOCK 2: TEAM PRODUCTIVITY ═══ -->
+<section id="block2" class="sp-s">
+  <div class="section-header fade-in">
+    <div class="eyebrow">Block 2 — Team Productivity</div>
+    <h2 class="section-title">High Performance<br><em>Execution Systems</em></h2>
+  </div>
+
+  <!-- OKR vs KPI -->
+  <div class="fade-in" style="margin-bottom:4rem;">
+    <div class="lm" style="margin-bottom:1.5rem;">OKRs vs KPIs — Two Essential Tools, Two Different Jobs</div>
+    <div class="compare-grid">
+      <div class="cg-col">
+        <div class="cg-header"><div style="font-size:1.4rem;">📊</div><div class="cg-title" style="color:var(--blue-l);">KPIs — Key Performance Indicators</div></div>
+        <div class="cg-row"><div class="cg-dot" style="background:var(--blue-l);"></div><div class="cg-text">Measure ongoing operational health — the vital signs of the business</div></div>
+        <div class="cg-row"><div class="cg-dot" style="background:var(--blue-l);"></div><div class="cg-text">Retrospective — tell you how you performed, not where you're going</div></div>
+        <div class="cg-row"><div class="cg-dot" style="background:var(--blue-l);"></div><div class="cg-text">Stable over time — the same KPIs apply quarter after quarter</div></div>
+        <div class="cg-row"><div class="cg-dot" style="background:var(--blue-l);"></div><div class="cg-text">Examples: NPS, Revenue growth, On-time delivery, Employee engagement</div></div>
+        <div style="margin-top:1rem;padding:1rem;background:var(--blue-s);border:1px solid rgba(74,130,201,.2);font-size:.82rem;color:var(--text-2);">⚠ Common Error: Using only KPIs without OKRs creates teams that maintain the status quo but never achieve breakthroughs.</div>
+      </div>
+      <div class="cg-col">
+        <div class="cg-header"><div style="font-size:1.4rem;">🎯</div><div class="cg-title" style="color:var(--e-light);">OKRs — Objectives & Key Results</div></div>
+        <div class="cg-row"><div class="cg-dot" style="background:var(--e-light);"></div><div class="cg-text">Drive breakthrough performance — set ambitious goals that stretch current capability</div></div>
+        <div class="cg-row"><div class="cg-dot" style="background:var(--e-light);"></div><div class="cg-text">Forward-facing — focus energy on what needs to change, not what already works</div></div>
+        <div class="cg-row"><div class="cg-dot" style="background:var(--e-light);"></div><div class="cg-text">Time-bound (quarterly) — create urgency and forcing functions for progress</div></div>
+        <div class="cg-row"><div class="cg-dot" style="background:var(--e-light);"></div><div class="cg-text">60–70% completion is success — if you always hit 100%, they weren't ambitious enough</div></div>
+        <div style="margin-top:1rem;padding:1rem;background:var(--e-subtle);border:1px solid var(--e-border);font-size:.82rem;color:var(--text-2);">★ OKR Power: Used by Google since 1999. John Doerr credits OKRs as the reason Google became Google.</div>
+      </div>
+    </div>
+    <!-- OKR example -->
+    <div style="margin-top:1.5rem;border:1px solid var(--border);background:var(--surface-2);">
+      <div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border);font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);">OKR Example — Senior Leadership Team</div>
+      <div style="padding:1.4rem 1.5rem;border-bottom:1px solid var(--border);"><div style="font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--e-light);margin-bottom:.4rem;">Objective</div><div style="font-size:.92rem;font-weight:600;">Become the fastest-responding team in the organization by Q3</div></div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);">
+        <div style="padding:1.2rem 1.5rem;border-right:1px solid var(--border);"><div style="font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:.4rem;">KR1 · Measurable</div><div style="font-size:.85rem;color:var(--text-2);">Reduce average decision-to-implementation time from 18 days to 5 days</div></div>
+        <div style="padding:1.2rem 1.5rem;border-right:1px solid var(--border);"><div style="font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:.4rem;">KR2 · Measurable</div><div style="font-size:.85rem;color:var(--text-2);">Achieve 90% of weekly team commitments completed on time</div></div>
+        <div style="padding:1.2rem 1.5rem;"><div style="font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:.4rem;">KR3 · Measurable</div><div style="font-size:.85rem;color:var(--text-2);">Each team member completes 3 delegated decisions autonomously per week</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4DX -->
+  <div class="fade-in" style="margin-bottom:4rem;">
+    <div class="lm" style="margin-bottom:1.5rem;">4 Disciplines of Execution (4DX) — McChesney, Covey & Huling</div>
+    <div class="fdx-grid">
+      <div class="fdx-cell" style="border-top:2px solid var(--e);">
+        <div class="fdx-num" style="color:var(--e);">1</div>
+        <div class="fdx-icon">🎯</div>
+        <div class="fdx-name" style="color:var(--e-light);">Focus on the Wildly Important Goal</div>
+        <div class="fdx-full" style="color:var(--e);">Discipline 1 — WIG</div>
+        <div class="fdx-desc">Identify the ONE goal that, if achieved, makes everything else easier or unnecessary. Most teams fail execution by pursuing too many priorities simultaneously. Ruthless focus on one WIG creates breakthrough results.</div>
+      </div>
+      <div class="fdx-cell" style="border-top:2px solid var(--amber);">
+        <div class="fdx-num" style="color:var(--amber);">2</div>
+        <div class="fdx-icon">📏</div>
+        <div class="fdx-name" style="color:var(--amber-l);">Act on Lead Measures</div>
+        <div class="fdx-full" style="color:var(--amber);">Discipline 2 — Lead vs Lag</div>
+        <div class="fdx-desc">Lag measures tell you if you achieved the goal. Lead measures tell you if you're on track to achieve it. Leaders who act on lead measures drive results — those who focus only on lag measures react to history.</div>
+      </div>
+      <div class="fdx-cell" style="border-top:2px solid var(--green);">
+        <div class="fdx-num" style="color:var(--green);">3</div>
+        <div class="fdx-icon">📊</div>
+        <div class="fdx-name" style="color:var(--green-l);">Keep a Compelling Scoreboard</div>
+        <div class="fdx-full" style="color:var(--green);">Discipline 3 — Visibility</div>
+        <div class="fdx-desc">People play differently when they're keeping score. A visible, simple scoreboard that every team member owns transforms engagement from compliance to competition. If the team can't see the score, they play for themselves.</div>
+      </div>
+      <div class="fdx-cell" style="border-top:2px solid var(--blue);">
+        <div class="fdx-num" style="color:var(--blue);">4</div>
+        <div class="fdx-icon">🔄</div>
+        <div class="fdx-name" style="color:var(--blue-l);">Create a Cadence of Accountability</div>
+        <div class="fdx-full" style="color:var(--blue);">Discipline 4 — Rhythm</div>
+        <div class="fdx-desc">A weekly 20-minute WIG session where every team member answers: "What are the 1–2 most important commitments I can make this week to advance the WIG?" Then reviews last week's commitments. Accountability without bureaucracy.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Execution Rhythms -->
+  <div class="fade-in" style="margin-bottom:4rem;">
+    <div class="lm" style="margin-bottom:1.5rem;">Execution Rhythms — The Cadence of High-Performance Teams</div>
+    <div class="rhythm-flow">
+      <div class="rf-cell" style="border-top:2px solid var(--e);">
+        <div class="rf-period" style="color:var(--e-light);">Weekly Rhythm</div>
+        <div class="rf-title" style="color:var(--e-light);">The Execution Pulse</div>
+        <div class="rf-item"><div class="rf-dot" style="background:var(--e);"></div>20-min WIG session: commitments made and reviewed</div>
+        <div class="rf-item"><div class="rf-dot" style="background:var(--e);"></div>Scoreboard updated — everyone sees the number</div>
+        <div class="rf-item"><div class="rf-dot" style="background:var(--e);"></div>Blockers surfaced and owned — not escalated upward</div>
+        <div class="rf-item"><div class="rf-dot" style="background:var(--e);"></div>One coaching question per person from their lead</div>
+        <div class="rf-item"><div class="rf-dot" style="background:var(--e);"></div>Friday: each person writes week's biggest learning</div>
+      </div>
+      <div class="rf-cell" style="border-top:2px solid var(--amber);">
+        <div class="rf-period" style="color:var(--amber-l);">Monthly Rhythm</div>
+        <div class="rf-title" style="color:var(--amber-l);">The Alignment Check</div>
+        <div class="rf-item"><div class="rf-dot" style="background:var(--amber);"></div>OKR progress review — honest scoring (0–1 scale)</div>
+        <div class="rf-item"><div class="rf-dot" style="background:var(--amber);"></div>Lead measure trends — what's working, what isn't</div>
+        <div class="rf-item"><div class="rf-dot" style="background:var(--amber);"></div>Team health check — energy and engagement pulse</div>
+        <div class="rf-item"><div class="rf-dot" style="background:var(--amber);"></div>One-page strategic narrative update</div>
+        <div class="rf-item"><div class="rf-dot" style="background:var(--amber);"></div>Delegation audit: what moved up the Appelo scale?</div>
+      </div>
+      <div class="rf-cell" style="border-top:2px solid var(--green);">
+        <div class="rf-period" style="color:var(--green-l);">Quarterly Rhythm</div>
+        <div class="rf-title" style="color:var(--green-l);">The Strategic Reset</div>
+        <div class="rf-item"><div class="rf-dot" style="background:var(--green);"></div>Full OKR retrospective and new cycle launch</div>
+        <div class="rf-item"><div class="rf-dot" style="background:var(--green);"></div>Development conversations — each team member</div>
+        <div class="rf-item"><div class="rf-dot" style="background:var(--green);"></div>Strategy alignment check — priorities still right?</div>
+        <div class="rf-item"><div class="rf-dot" style="background:var(--green);"></div>Team composition review — Belbin gaps addressed</div>
+        <div class="rf-item"><div class="rf-dot" style="background:var(--green);"></div>90-day leader commitment review and reset</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Aligned vs misaligned -->
+  <div class="fade-in" style="margin-bottom:4rem;">
+    <div class="lm" style="margin-bottom:1.5rem;">Aligned Team vs Misaligned Team — The Execution Gap</div>
+    <div class="align-compare">
+      <div class="ac-col">
+        <div class="ac-header" style="color:var(--e-light);">❌ Misaligned Team</div>
+        <div class="ac-item"><span style="font-size:.9rem;flex-shrink:0;">⚡</span><span>Each person working from their own priority list — no shared WIG</span></div>
+        <div class="ac-item"><span style="font-size:.9rem;flex-shrink:0;">⚡</span><span>Meetings to discuss progress — but no accountability structure</span></div>
+        <div class="ac-item"><span style="font-size:.9rem;flex-shrink:0;">⚡</span><span>100 priorities — so effectively zero priorities</span></div>
+        <div class="ac-item"><span style="font-size:.9rem;flex-shrink:0;">⚡</span><span>KPIs tracked — but no one owns them</span></div>
+        <div class="ac-item"><span style="font-size:.9rem;flex-shrink:0;">⚡</span><span>Leader is the delivery bottleneck — everything escalates up</span></div>
+        <div class="ac-item"><span style="font-size:.9rem;flex-shrink:0;">⚡</span><span>Urgency without direction — activity mistaken for progress</span></div>
+      </div>
+      <div class="ac-col">
+        <div class="ac-header" style="color:var(--green-l);">✓ Aligned High-Execution Team</div>
+        <div class="ac-item"><span style="font-size:.9rem;flex-shrink:0;">✓</span><span>One shared WIG — everyone can articulate it in one sentence</span></div>
+        <div class="ac-item"><span style="font-size:.9rem;flex-shrink:0;">✓</span><span>Weekly cadence with personal commitments and public accountability</span></div>
+        <div class="ac-item"><span style="font-size:.9rem;flex-shrink:0;">✓</span><span>3 OKRs maximum per quarter — then everything else is secondary</span></div>
+        <div class="ac-item"><span style="font-size:.9rem;flex-shrink:0;">✓</span><span>Visible scoreboard — everyone knows if they're winning or losing</span></div>
+        <div class="ac-item"><span style="font-size:.9rem;flex-shrink:0;">✓</span><span>Decisions made at the right level (Module D) — leader unblocked</span></div>
+        <div class="ac-item"><span style="font-size:.9rem;flex-shrink:0;">✓</span><span>Urgency is earned by importance — not manufactured by noise</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Execution Dashboard -->
+  <div class="exec-dash fade-in">
+    <div class="ed-title">★ Execution Dashboard — Team Performance at a Glance</div>
+    <div class="ed-sub">A conceptual dashboard for senior leaders — what a high-execution team measures and makes visible every week</div>
+    <div class="ed-grid">
+      <div class="ed-kpi"><div class="ed-kpi-label">WIG Completion Rate</div><div class="ed-kpi-value" style="color:var(--green-l);">87%</div><div class="ed-kpi-trend">↑ +12% vs last month</div></div>
+      <div class="ed-kpi"><div class="ed-kpi-label">Weekly Commitments Met</div><div class="ed-kpi-value" style="color:var(--e-light);">73%</div><div class="ed-kpi-trend">→ Target: 85%</div></div>
+      <div class="ed-kpi"><div class="ed-kpi-label">Decision Speed (days)</div><div class="ed-kpi-value" style="color:var(--amber-l);">4.2</div><div class="ed-kpi-trend">↓ from 11.8 days</div></div>
+      <div class="ed-kpi"><div class="ed-kpi-label">Team Engagement</div><div class="ed-kpi-value" style="color:var(--blue-l);">8.1</div><div class="ed-kpi-trend">↑ +0.8 this quarter</div></div>
+    </div>
+    <div class="lm" style="margin-bottom:1rem;">Q3 OKR Progress — Real-Time</div>
+    <div class="ed-okr-row"><div class="ed-okr-name">Reduce decision-to-implementation time to 5 days</div><div class="ed-progress"><div class="ed-progress-fill" style="width:76%;background:var(--e);"></div></div><div class="ed-pct" style="color:var(--e-light);">76%</div></div>
+    <div class="ed-okr-row"><div class="ed-okr-name">Achieve 90% weekly commitment completion rate</div><div class="ed-progress"><div class="ed-progress-fill" style="width:62%;background:var(--amber);"></div></div><div class="ed-pct" style="color:var(--amber-l);">62%</div></div>
+    <div class="ed-okr-row"><div class="ed-okr-name">3 autonomous decisions per team member per week</div><div class="ed-progress"><div class="ed-progress-fill" style="width:88%;background:var(--green);"></div></div><div class="ed-pct" style="color:var(--green-l);">88%</div></div>
+  </div>
+</section>
+
+<!-- ═══ BLOCK 3: EMPOWERMENT ═══ -->
+<section id="block3" class="sp">
+  <div class="section-header fade-in">
+    <div class="eyebrow">Block 3 — Empowerment</div>
+    <h2 class="section-title">Leadership<br><em>Through Others</em></h2>
+  </div>
+  <div class="sb fade-in">
+    <div class="sb-tag">Empowerment</div>
+    <p class="sb-text"><strong>The Integration Point:</strong> Module D built the structural framework for delegation and empowerment. This block focuses on the psychological and cultural conditions under which empowerment actually works — Psychological Safety, Ownership vs Control, and the Leader-as-Coach applied to execution contexts. Without these conditions, delegation at any level creates anxiety rather than performance.</p>
+  </div>
+
+  <div class="psych-safety fade-in">
+    <div>
+      <div class="lm" style="margin-bottom:1.5rem;">Psychological Safety — Amy Edmondson, Harvard</div>
+      <div class="ps-ladder">
+        <div class="ps-rung" style="background:var(--red-s);">
+          <div class="ps-num" style="color:var(--e-light);">1</div>
+          <div class="ps-body"><div class="ps-name" style="color:var(--e-light);">Fear Zone — Silent Execution</div><div class="ps-desc">People do what they're told, avoid raising issues, and stay quiet in meetings. Work gets done — but mistakes are hidden, innovations are suppressed, and engagement is minimal.</div><div class="ps-signal">Signal: "I'll just do what was asked. No point raising the issue."</div></div>
+        </div>
+        <div class="ps-rung" style="background:rgba(212,133,74,.06);">
+          <div class="ps-num" style="color:var(--amber-l);">2</div>
+          <div class="ps-body"><div class="ps-name" style="color:var(--amber-l);">Comfort Zone — Selective Voice</div><div class="ps-desc">People share ideas and concerns with those they trust — but not in groups or upward. Psychological safety exists in pockets, not team-wide. One-to-one conversations reveal what team meetings don't.</div><div class="ps-signal">Signal: "I'll mention this to my peer but not in the all-hands."</div></div>
+        </div>
+        <div class="ps-rung" style="background:var(--blue-s);">
+          <div class="ps-num" style="color:var(--blue-l);">3</div>
+          <div class="ps-body"><div class="ps-name" style="color:var(--blue-l);">Learning Zone — Constructive Challenge</div><div class="ps-desc">People raise concerns, challenge ideas constructively, and admit mistakes openly. Diverse perspectives are heard and valued. Psychological safety is team-level — enabling real collaboration and continuous improvement.</div><div class="ps-signal">Signal: "I think there's a better approach — let me explain why."</div></div>
+        </div>
+        <div class="ps-rung" style="background:var(--green-s);border-left:2px solid var(--green);">
+          <div class="ps-num" style="color:var(--green-l);">4</div>
+          <div class="ps-body"><div class="ps-name" style="color:var(--green-l);">★ High-Performance Zone — Courageous Voice</div><div class="ps-desc">People challenge power, surface uncomfortable truths, take intelligent risks, and experiment boldly. Leaders model vulnerability and intellectual humility. This zone produces Google's Project Aristotle top-quintile teams.</div><div class="ps-signal">Signal: "I disagree with the direction — here's what I think we're missing."</div></div>
+        </div>
+      </div>
+      <div style="margin-top:1rem;font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);">Amy Edmondson (1999) — "Psychological Safety and Learning Behavior in Work Teams" · Harvard</div>
+    </div>
+    <div>
+      <div class="lm" style="margin-bottom:1.5rem;">What Blocks Empowerment in Leaders</div>
+      <div style="display:flex;flex-direction:column;gap:0;border:1px solid var(--border);margin-bottom:2rem;">
+        <div style="display:grid;grid-template-columns:auto 1fr;border-bottom:1px solid var(--border);transition:background .2s;" onmouseover="this.style.background='var(--e-subtle)'" onmouseout="this.style.background=''">
+          <div style="padding:1rem;border-right:1px solid var(--border);font-size:.9rem;display:flex;align-items:center;">😰</div>
+          <div style="padding:1rem 1.4rem;"><div style="font-size:.88rem;font-weight:600;color:var(--e-light);margin-bottom:.18rem;">Fear of losing control</div><div style="font-size:.8rem;color:var(--text-2);">The belief that delegating means losing oversight. In reality, the opposite is true — leaders who empower gain organizational reach far beyond their personal capacity.</div></div>
+        </div>
+        <div style="display:grid;grid-template-columns:auto 1fr;border-bottom:1px solid var(--border);transition:background .2s;" onmouseover="this.style.background='var(--e-subtle)'" onmouseout="this.style.background=''">
+          <div style="padding:1rem;border-right:1px solid var(--border);font-size:.9rem;display:flex;align-items:center;">🏆</div>
+          <div style="padding:1rem 1.4rem;"><div style="font-size:.88rem;font-weight:600;color:var(--e-light);margin-bottom:.18rem;">Identity tied to being the expert</div><div style="font-size:.8rem;color:var(--text-2);">Senior leaders who rose through technical expertise resist empowering others because their identity is built on being the one with the answers. Coaching (Module C) directly addresses this.</div></div>
+        </div>
+        <div style="display:grid;grid-template-columns:auto 1fr;border-bottom:1px solid var(--border);transition:background .2s;" onmouseover="this.style.background='var(--e-subtle)'" onmouseout="this.style.background=''">
+          <div style="padding:1rem;border-right:1px solid var(--border);font-size:.9rem;display:flex;align-items:center;">⏰</div>
+          <div style="padding:1rem 1.4rem;"><div style="font-size:.88rem;font-weight:600;color:var(--e-light);margin-bottom:.18rem;">Short-term thinking ("it's faster to do it myself")</div><div style="font-size:.8rem;color:var(--text-2);">True in the moment. False as a strategy. Every time you bypass empowerment to save 20 minutes, you add another layer to the team's dependency on you.</div></div>
+        </div>
+        <div style="display:grid;grid-template-columns:auto 1fr;transition:background .2s;" onmouseover="this.style.background='var(--e-subtle)'" onmouseout="this.style.background=''">
+          <div style="padding:1rem;border-right:1px solid var(--border);font-size:.9rem;display:flex;align-items:center;">💬</div>
+          <div style="padding:1rem 1.4rem;"><div style="font-size:.88rem;font-weight:600;color:var(--e-light);margin-bottom:.18rem;">Unclear boundaries create re-centralization</div><div style="font-size:.8rem;color:var(--text-2);">When people aren't sure what they're allowed to decide, they default to asking — and leaders default to answering. The Delegation Canvas (Module D) solves this structurally.</div></div>
+        </div>
+      </div>
+      <div class="rc">
+        <div class="ri">⚡</div>
+        <p class="rq">"Where in your leadership is the team waiting for permission they shouldn't need — and what specifically are you protecting that no longer needs protecting?"</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bad vs Good empowerment -->
+  <div class="bvg fade-in">
+    <div class="bvg-col bad">
+      <div class="bvg-header" style="color:var(--e-light);">❌ Poor Empowerment — What It Looks Like</div>
+      <div class="bvg-row"><span style="flex-shrink:0;">⚡</span><span>"You're empowered to make decisions" — but the leader overrules every significant one</span></div>
+      <div class="bvg-row"><span style="flex-shrink:0;">⚡</span><span>Delegation without clarity — the team doesn't know what decisions they actually own</span></div>
+      <div class="bvg-row"><span style="flex-shrink:0;">⚡</span><span>No psychological safety — people "decide" what they think the leader wants</span></div>
+      <div class="bvg-row"><span style="flex-shrink:0;">⚡</span><span>Blame when empowered decisions go wrong — destroying future empowerment permanently</span></div>
+      <div class="bvg-row"><span style="flex-shrink:0;">⚡</span><span>Empowerment in words, micromanagement in behavior — the most common pattern</span></div>
+    </div>
+    <div class="bvg-col good">
+      <div class="bvg-header" style="color:var(--green-l);">✓ Real Empowerment — What It Looks Like</div>
+      <div class="bvg-row"><span style="flex-shrink:0;">✓</span><span>Clear boundaries: "You own everything inside X — come to me only for Y"</span></div>
+      <div class="bvg-row"><span style="flex-shrink:0;">✓</span><span>Delegation Canvas defines authority explicitly — no ambiguity about who decides what</span></div>
+      <div class="bvg-row"><span style="flex-shrink:0;">✓</span><span>Psychological safety to make — and own — mistakes as part of development</span></div>
+      <div class="bvg-row"><span style="flex-shrink:0;">✓</span><span>When empowered decisions go wrong, the leader coaches — not blames</span></div>
+      <div class="bvg-row"><span style="flex-shrink:0;">✓</span><span>Behavior and words aligned — the leader's actions prove the words every time</span></div>
+    </div>
+  </div>
+
+  <!-- Role play -->
+  <div class="roleplay fade-in">
+    <div style="font-family:var(--mono);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--e-light);margin-bottom:.4rem;">★ Structured Role Play — The Empowerment Conversation (15 minutes)</div>
+    <div style="font-size:.88rem;color:var(--text-2);margin-bottom:1.5rem;">In groups of 3. Rotate roles after each round. Use GROW (Module C) + Delegation levels (Module D) together.</div>
+    <div class="rp-scenario">
+      <strong style="color:var(--text-1);">Scenario:</strong> A direct report comes to you for the fourth time this week asking for approval on a decision that is clearly within their role. They are capable — but have become dependent on your validation. The pattern is costing both of you time and stunting their growth. You have 10 minutes together. Your goal: transfer genuine ownership by the end of the conversation — not just permission for this specific decision.
+    </div>
+    <div class="rp-roles">
+      <div class="rp-role"><div class="rp-role-title" style="color:var(--e-light);">Role 1 — The Leader</div><div class="rp-role-desc">Your goal: use coaching questions (not directives) to help the team member own the decision themselves. Begin with: "What do you think you should do?" Resist the urge to advise for at least 3 minutes. End by explicitly granting authority: "From today, this is your call."</div></div>
+      <div class="rp-role"><div class="rp-role-title" style="color:var(--amber-l);">Role 2 — The Team Member</div><div class="rp-role-desc">You have a clear view on what to do — but have learned that your leader always wants to weigh in. Play the dependency realistically: hesitate, seek confirmation, and notice how your responses shift when the leader coaches versus when they direct.</div></div>
+      <div class="rp-role"><div class="rp-role-title" style="color:var(--blue-l);">Role 3 — The Observer</div><div class="rp-role-desc">Time the conversation. Note: How long before the leader gave an opinion? Did the team member own the decision by the end? What coaching questions were most powerful? What behaviors reinforced dependency rather than empowerment?</div></div>
+    </div>
+    <div class="rp-debrief">
+      <div class="rp-debrief-label">Debrief Questions</div>
+      <div class="rp-q">What was the moment when ownership genuinely shifted — or didn't? What caused that?</div>
+      <div class="rp-q">Which of the leader's behaviors created empowerment — and which subtly undermined it?</div>
+      <div class="rp-q">What one phrase or question had the most impact on the team member's confidence?</div>
+      <div class="rp-q">How does this scenario map to your real team — who is the person most dependent on your validation?</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BLOCK 4: MOTIVATION ═══ -->
+<section id="block4" class="sp-s">
+  <div class="section-header fade-in">
+    <div class="eyebrow">Block 4 — Team Motivation</div>
+    <h2 class="section-title">Sustainable<br><em>Performance Energy</em></h2>
+  </div>
+
+  <!-- SDT -->
+  <div class="fade-in" style="margin-bottom:4rem;">
+    <div class="lm" style="margin-bottom:1.5rem;">Self-Determination Theory — Deci & Ryan · The Science of Intrinsic Motivation</div>
+    <div class="sdt-grid">
+      <div class="sdt-cell" style="border-top:2px solid var(--e);">
+        <div class="sdt-icon">🎮</div>
+        <div class="sdt-name" style="color:var(--e-light);">Autonomy</div>
+        <div class="sdt-full" style="color:var(--e);">The need for self-direction</div>
+        <div class="sdt-desc">The fundamental human need to feel that one's actions are self-chosen and personally endorsed. Not independence — the experience of volition in what you do and how you do it.</div>
+        <div class="sdt-action" style="border-color:var(--e);">Give people maximum ownership over HOW they achieve their goals. The leader who defines outcomes and releases methods creates the deepest autonomy satisfaction.</div>
+      </div>
+      <div class="sdt-cell" style="border-top:2px solid var(--blue);">
+        <div class="sdt-icon">📈</div>
+        <div class="sdt-name" style="color:var(--blue-l);">Competence</div>
+        <div class="sdt-full" style="color:var(--blue);">The need to grow and master</div>
+        <div class="sdt-desc">The need to feel effective in interactions with the environment — to experience growth and mastery. Requires optimal challenge: not too easy (boring) and not too hard (anxiety-producing).</div>
+        <div class="sdt-action" style="border-color:var(--blue);">Assign stretch goals that sit just beyond current capability. Provide coaching before and feedback after. Celebrate growth, not just achievement. Make skill development visible.</div>
+      </div>
+      <div class="sdt-cell" style="border-top:2px solid var(--green);">
+        <div class="sdt-icon">🤝</div>
+        <div class="sdt-name" style="color:var(--green-l);">Relatedness</div>
+        <div class="sdt-full" style="color:var(--green);">The need to belong and matter</div>
+        <div class="sdt-desc">The need to feel connected to others, to care and be cared for, to belong to a community with genuine mutual regard. This is Belonging (Module B) applied to motivation — the link between the two modules.</div>
+        <div class="sdt-action" style="border-color:var(--green);">Build genuine team connection — not forced social events, but real shared purpose, visible mutual care, and psychological safety (Block 3). Relatedness is the foundation all other motivation rests on.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Drive model + Expectancy -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;" class="fade-in">
+    <div>
+      <div class="lm" style="margin-bottom:1.5rem;">Drive Model — Daniel Pink · Beyond Carrots and Sticks</div>
+      <div style="border:1px solid var(--border);">
+        <div style="display:grid;grid-template-columns:60px 1fr;border-bottom:1px solid var(--border);background:var(--e-subtle);">
+          <div style="display:flex;align-items:center;justify-content:center;border-right:1px solid var(--border);font-size:1.2rem;padding:.5rem;">🎯</div>
+          <div style="padding:1.2rem 1.5rem;"><div style="font-size:.9rem;font-weight:600;color:var(--e-light);margin-bottom:.2rem;">Autonomy</div><div style="font-size:.82rem;color:var(--text-2);">The desire to direct our own lives. In execution: own the HOW, not just the WHAT. Four types: task, time, technique, team.</div></div>
+        </div>
+        <div style="display:grid;grid-template-columns:60px 1fr;border-bottom:1px solid var(--border);background:var(--blue-s);">
+          <div style="display:flex;align-items:center;justify-content:center;border-right:1px solid var(--border);font-size:1.2rem;padding:.5rem;">📈</div>
+          <div style="padding:1.2rem 1.5rem;"><div style="font-size:.9rem;font-weight:600;color:var(--blue-l);margin-bottom:.2rem;">Mastery</div><div style="font-size:.82rem;color:var(--text-2);">The urge to get better at something that matters. Leaders enable mastery through stretch assignments, coaching, and making growth visible and celebrated.</div></div>
+        </div>
+        <div style="display:grid;grid-template-columns:60px 1fr;background:var(--green-s);">
+          <div style="display:flex;align-items:center;justify-content:center;border-right:1px solid var(--border);font-size:1.2rem;padding:.5rem;">🌟</div>
+          <div style="padding:1.2rem 1.5rem;"><div style="font-size:.9rem;font-weight:600;color:var(--green-l);margin-bottom:.2rem;">Purpose</div><div style="font-size:.82rem;color:var(--text-2);">The yearning to do what we do in service of something larger. Leaders who connect daily work to meaningful organizational purpose unlock the highest form of sustainable motivation.</div></div>
+        </div>
+      </div>
+      <div style="margin-top:1rem;padding:1.2rem;background:var(--surface-2);border:1px solid var(--border);border-left:2px solid var(--e);font-size:.82rem;color:var(--text-2);">
+        <strong style="color:var(--text-1);">Pink's Core Insight:</strong> Extrinsic rewards (bonuses, raises) work for simple, mechanical tasks. For cognitive, creative, and leadership work — the kind senior leaders do — they are not just ineffective, they are counterproductive. <strong style="color:var(--e-light);">Intrinsic motivation is the only sustainable fuel for high-cognitive performance.</strong>
+      </div>
+    </div>
+    <div>
+      <div class="lm" style="margin-bottom:1.5rem;">Expectancy Theory — Vroom · Why People Choose to Try</div>
+      <div style="border:1px solid var(--border);margin-bottom:1.5rem;">
+        <div style="padding:1.5rem;border-bottom:1px solid var(--border);">
+          <div style="text-align:center;font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--e-light);margin-bottom:.8rem;">Motivation = E × I × V</div>
+          <div style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:.5rem;align-items:center;text-align:center;">
+            <div style="padding:.8rem;background:var(--e-subtle);border:1px solid var(--e-border);"><div style="font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--e-light);margin-bottom:.3rem;">Expectancy (E)</div><div style="font-size:.78rem;color:var(--text-2);">Will my effort lead to performance?</div></div>
+            <div style="color:var(--text-3);font-size:1.1rem;">×</div>
+            <div style="padding:.8rem;background:var(--blue-s);border:1px solid rgba(74,130,201,.2);"><div style="font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-l);margin-bottom:.3rem;">Instrumentality (I)</div><div style="font-size:.78rem;color:var(--text-2);">Will performance lead to reward?</div></div>
+            <div style="color:var(--text-3);font-size:1.1rem;">×</div>
+            <div style="padding:.8rem;background:var(--green-s);border:1px solid rgba(58,158,110,.2);"><div style="font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green-l);margin-bottom:.3rem;">Valence (V)</div><div style="font-size:.78rem;color:var(--text-2);">Do I value that reward?</div></div>
+          </div>
+        </div>
+        <div style="padding:1.2rem 1.5rem;font-size:.82rem;color:var(--text-2);line-height:1.65;">If any one of these three is zero — motivation is zero. A leader who gives rewards people don't value (V=0), or gives rewards that aren't linked to performance (I=0), or assigns tasks people believe they will fail (E=0) has a team that will not give discretionary effort.</div>
+      </div>
+      <div class="lm" style="margin-bottom:.8rem;">Intrinsic vs Extrinsic — The Long Game</div>
+      <div style="border:1px solid var(--border);">
+        <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--border);background:var(--surface-2);">
+          <div style="padding:.7rem 1rem;border-right:1px solid var(--border);font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);">Extrinsic</div>
+          <div style="padding:.7rem 1rem;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);">Intrinsic</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--border);">
+          <div style="padding:.7rem 1rem;border-right:1px solid var(--border);font-size:.8rem;color:var(--text-2);">Salary, bonus, promotion</div>
+          <div style="padding:.7rem 1rem;font-size:.8rem;color:var(--text-2);">Meaning, growth, autonomy</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--border);">
+          <div style="padding:.7rem 1rem;border-right:1px solid var(--border);font-size:.8rem;color:var(--text-2);">Short-term compliance</div>
+          <div style="padding:.7rem 1rem;font-size:.8rem;color:var(--text-2);">Long-term commitment</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;">
+          <div style="padding:.7rem 1rem;border-right:1px solid var(--border);font-size:.8rem;color:var(--e-light);">Diminishes over time</div>
+          <div style="padding:.7rem 1rem;font-size:.8rem;color:var(--green-l);">Compounds over time</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Motivation errors -->
+  <div class="fade-in" style="margin-top:4rem;">
+    <div class="lm" style="margin-bottom:1.5rem;">6 Motivation Errors Leaders Make — And How to Correct Them</div>
+    <div class="mot-errors">
+      <div class="me-cell"><div class="me-icon">💰</div><div class="me-error">Believing money is the primary motivator</div><div class="me-desc">Beyond a living wage, compensation satisfies hygiene — it prevents dissatisfaction but does not create engagement. Gallup: compensation ranks 5th in what keeps top performers in their roles.</div><div class="me-fix">Fix: Invest the same energy in Autonomy, Mastery, and Purpose as in compensation.</div></div>
+      <div class="me-cell"><div class="me-icon">🏅</div><div class="me-error">Public recognition for private personalities</div><div class="me-desc">Not everyone wants a spotlight. Introverted high performers are demotivated — not motivated — by forced public recognition. What motivates one person actively demotivates another.</div><div class="me-fix">Fix: Ask each person how they like to be recognized — then do that, individually.</div></div>
+      <div class="me-cell"><div class="me-icon">📊</div><div class="me-error">Tracking activity instead of outcome</div><div class="me-desc">Measuring inputs (hours worked, meetings attended) rather than outputs (impact, results) signals that presence matters more than performance — and destroys motivation in high performers.</div><div class="me-fix">Fix: Define and measure outcomes explicitly. Let people own the path to get there.</div></div>
+      <div class="me-cell"><div class="me-icon">🔁</div><div class="me-error">Confusing motion with progress</div><div class="me-desc">Busy teams can feel motivated by the volume of activity — but without a clear WIG and scoreboard, busyness creates exhaustion rather than satisfaction. Teresa Amabile's research: small wins matter most.</div><div class="me-fix">Fix: Make progress visible daily. "We moved the needle on X today" is more motivating than any award.</div></div>
+      <div class="me-cell"><div class="me-icon">🌑</div><div class="me-error">Applying the same leadership style to everyone</div><div class="me-desc">Hersey-Blanchard (Module D): D1s need direction, D4s need autonomy. Treating everyone the same is not fair — it is inattentive. The highest-performing leaders adapt their style to each individual's development level.</div><div class="me-fix">Fix: Map each person. Apply the right style. Revisit quarterly as capability evolves.</div></div>
+      <div class="me-cell"><div class="me-icon">🤐</div><div class="me-error">Not connecting work to organizational purpose</div><div class="me-desc">The most expensive motivation error. People who don't understand why their work matters beyond their job description never access their full discretionary effort — and leave the moment a higher-purpose role appears.</div><div class="me-fix">Fix: Every delegation conversation includes "why this matters" as the first sentence.</div></div>
+    </div>
+  </div>
+
+  <!-- Motivation diagnostic -->
+  <div class="mot-diag fade-in">
+    <div style="font-family:var(--mono);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--e-light);margin-bottom:.4rem;">★ Team Motivation Diagnostic</div>
+    <div style="font-size:.88rem;color:var(--text-2);margin-bottom:2rem;">Answer for your team as a whole — not aspirationally, but as things actually are today. 1 = Not at all true · 5 = Completely true</div>
+    <div class="md-grid">
+      <div class="md-item"><div class="md-q">Every team member can explain clearly how their work connects to the organization's purpose</div><div class="md-scale"><span class="md-scale-l">1</span><div class="md-btns" id="md1"></div><span class="md-scale-l">5</span></div></div>
+      <div class="md-item"><div class="md-q">Team members have genuine autonomy over HOW they achieve their goals — not just WHAT they must deliver</div><div class="md-scale"><span class="md-scale-l">1</span><div class="md-btns" id="md2"></div><span class="md-scale-l">5</span></div></div>
+      <div class="md-item"><div class="md-q">Each person is working on at least one task that stretches their current capability and feels genuinely challenging</div><div class="md-scale"><span class="md-scale-l">1</span><div class="md-btns" id="md3"></div><span class="md-scale-l">5</span></div></div>
+      <div class="md-item"><div class="md-q">Team members feel psychologically safe to raise problems, challenge decisions, and share mistakes openly</div><div class="md-scale"><span class="md-scale-l">1</span><div class="md-btns" id="md4"></div><span class="md-scale-l">5</span></div></div>
+      <div class="md-item"><div class="md-q">Progress toward meaningful goals is visible and celebrated regularly — not just at year-end reviews</div><div class="md-scale"><span class="md-scale-l">1</span><div class="md-btns" id="md5"></div><span class="md-scale-l">5</span></div></div>
+    </div>
+    <button class="md-submit" onclick="scoreMotivation()">Generate Team Motivation Profile →</button>
+    <div class="md-result" id="md-result">
+      <div class="md-r-label">Your Team Motivation Profile</div>
+      <div class="md-r-text" id="md-result-text"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BLOCK 5: AI & TECH ═══ -->
+<section id="block5" class="sp">
+  <div class="section-header fade-in">
+    <div class="eyebrow">Block 5 — Technology & AI for Execution</div>
+    <h2 class="section-title">The Intelligent<br><em>Execution Stack</em></h2>
+  </div>
+  <div class="sb fade-in">
+    <div class="sb-tag">AI · Tech</div>
+    <p class="sb-text"><strong>The Strategic Lens:</strong> AI tools for leaders are not about doing things faster. They are about <strong>eliminating the shallow work that consumes the time that should be invested in deep work, coaching, and strategic thinking.</strong> Every hour recovered from automated administrative work is an hour available for Quadrant 2 activities. That is the real ROI of the AI execution stack.</p>
+  </div>
+
+  <div class="ai-map fade-in">
+    <div class="ai-cat">
+      <div class="ai-cat-header" style="border-color:var(--e-border);background:var(--e-subtle);"><div class="ai-cat-icon">🧠</div><div class="ai-cat-name" style="color:var(--e-light);">Personal Organization & Focus</div></div>
+      <div class="ai-cat-body">
+        <div class="ai-tool"><div class="ai-tool-name">Notion AI</div><div class="ai-tool-use">AI-powered personal knowledge base. Captures meeting notes, generates summaries, builds your personal second brain. Replaces scattered documents with structured, searchable intelligence.</div></div>
+        <div class="ai-tool"><div class="ai-tool-name">Reclaim.ai</div><div class="ai-tool-use">AI calendar optimization. Automatically schedules deep work blocks, protects focus time, and moves meetings to create coherent work patterns. Your personal time architect.</div></div>
+        <div class="ai-tool"><div class="ai-tool-name">Obsidian + AI</div><div class="ai-tool-use">Linked thinking and note-taking. Creates connections between ideas, builds a personal knowledge graph. For leaders who want to develop strategic thinking, not just store information.</div></div>
+        <div class="ai-tool"><div class="ai-tool-name">ChatGPT / Claude</div><div class="ai-tool-use">Think partner, not answer machine. Use for: challenging your thinking on decisions, preparing for difficult conversations, stress-testing strategies, and drafting communications faster.</div></div>
+      </div>
+    </div>
+    <div class="ai-cat">
+      <div class="ai-cat-header" style="border-color:rgba(212,133,74,.3);background:var(--amber-s);"><div class="ai-cat-icon">⚡</div><div class="ai-cat-name" style="color:var(--amber-l);">Workflow Automation</div></div>
+      <div class="ai-cat-body">
+        <div class="ai-tool"><div class="ai-tool-name">Zapier / Make</div><div class="ai-tool-use">No-code automation connecting 5,000+ apps. Examples: auto-summarize inbound emails, route approval requests, trigger notifications based on KPI thresholds. Eliminate repetitive manual handoffs.</div></div>
+        <div class="ai-tool"><div class="ai-tool-name">Microsoft Copilot</div><div class="ai-tool-use">AI embedded in Microsoft 365. Summarizes email threads, drafts responses, generates meeting notes automatically, creates PowerPoint from documents. Recovers 2–3 hours per day for most senior leaders.</div></div>
+        <div class="ai-tool"><div class="ai-tool-name">Otter.ai / Fireflies</div><div class="ai-tool-use">AI meeting transcription and summarization. Every meeting automatically transcribed, summarized, and action items extracted. Eliminates note-taking, ensures nothing is missed, creates accountability artifacts.</div></div>
+        <div class="ai-tool"><div class="ai-tool-name">Mem.ai</div><div class="ai-tool-use">AI that organizes your notes automatically — no manual filing. Surfaces relevant past information when you need it. For leaders who want their past knowledge to be instantly accessible.</div></div>
+      </div>
+    </div>
+    <div class="ai-cat">
+      <div class="ai-cat-header" style="border-color:rgba(74,130,201,.3);background:var(--blue-s);"><div class="ai-cat-icon">📊</div><div class="ai-cat-name" style="color:var(--blue-l);">Decision Support & Strategy</div></div>
+      <div class="ai-cat-body">
+        <div class="ai-tool"><div class="ai-tool-name">Perplexity AI</div><div class="ai-tool-use">Real-time research with cited sources. For leaders who need to understand industry context, competitive landscape, or research-backed decisions quickly. Replace 2 hours of browsing with 5 minutes.</div></div>
+        <div class="ai-tool"><div class="ai-tool-name">ChatGPT (Adv.)</div><div class="ai-tool-use">Scenario analysis, option generation, devil's advocate thinking. Ask: "What are the 5 strongest arguments against this strategy?" or "What am I not seeing in this situation?" Your always-available thought partner.</div></div>
+        <div class="ai-tool"><div class="ai-tool-name">Miro + AI</div><div class="ai-tool-use">AI-enhanced collaborative strategy mapping. Generates frameworks, summarizes workshop outputs, creates structured visual thinking documents. Reduces post-workshop synthesis from days to minutes.</div></div>
+        <div class="ai-tool"><div class="ai-tool-name">Gamma / Tome</div><div class="ai-tool-use">AI presentation builder. Transforms bullet points and notes into structured, well-designed presentations. Recover 4–6 hours per presentation while improving quality and structure.</div></div>
+      </div>
+    </div>
+    <div class="ai-cat">
+      <div class="ai-cat-header" style="border-color:rgba(58,158,110,.3);background:var(--green-s);"><div class="ai-cat-icon">👥</div><div class="ai-cat-name" style="color:var(--green-l);">Team Management & Execution</div></div>
+      <div class="ai-cat-body">
+        <div class="ai-tool"><div class="ai-tool-name">Asana / Linear AI</div><div class="ai-tool-use">AI-powered execution tracking. Automatically identifies at-risk tasks, suggests priority adjustments, surfaces blockers before they become problems. Your team's execution health monitor.</div></div>
+        <div class="ai-tool"><div class="ai-tool-name">Lattice / Leapsome</div><div class="ai-tool-use">AI-enhanced performance management. Tracks OKR progress, surfaces engagement data, identifies flight risk signals, generates coaching conversation prompts. Combines execution and people intelligence.</div></div>
+        <div class="ai-tool"><div class="ai-tool-name">Slack AI</div><div class="ai-tool-use">Summarize long Slack threads, catch up on missed conversations, surface key decisions and action items automatically. Reclaims hours from communication overhead every week.</div></div>
+        <div class="ai-tool"><div class="ai-tool-name">Loom AI</div><div class="ai-tool-use">Async video communication with AI summaries. Replace 30-minute meetings with 5-minute Loom videos. AI automatically generates summaries, transcripts, and action items. Especially powerful for distributed teams.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ws" style="margin-top:4rem;">
+    <div class="ws-l">Strategic Principle</div>
+    <div class="ws-t">The goal of AI adoption is not to work at the same quality faster. It is to <strong>eliminate the shallow work ceiling</strong> that prevents senior leaders from doing their highest-value work: strategy, coaching, relationship-building, and complex decision-making. <strong>If a tool doesn't free time for Quadrant 2 — it's not worth the cognitive cost of adoption.</strong></div>
+  </div>
+</section>
+
+<!-- ═══ EXECUTIVE TAKEAWAYS ═══ -->
+<section id="takeaways">
+  <div class="section-header fade-in" style="position:relative;z-index:1;">
+    <div class="eyebrow">AGILE Programme — Executive Synthesis</div>
+    <h2 class="section-title">The <em>10 Principles</em><br>of the AGILE Leader</h2>
+    <p class="body-text" style="margin-top:1.5rem;max-width:620px;">These are not guidelines. They are the commitments that separate leaders who understand these frameworks from leaders who have internalized them. Each principle draws from at least two modules of the AGILE programme.</p>
+  </div>
+  <div class="tk-grid fade-in">
+    <div class="tk-card featured">
+      <div class="tk-num">01</div>
+      <div class="tk-icon">🎯</div>
+      <div class="tk-principle">Clarity Before Speed</div>
+      <div class="tk-quote">"The fastest teams are not the most urgent — they are the most aligned."</div>
+      <div class="tk-desc">A team that knows exactly what the WIG is, who owns each decision, and how progress is measured moves faster than any urgency-driven culture. OKRs + Eisenhower + 7 Levels = the speed architecture.</div>
+      <div class="tk-module">Modules A · D · E</div>
+    </div>
+    <div class="tk-card">
+      <div class="tk-num">02</div>
+      <div class="tk-icon">🔑</div>
+      <div class="tk-principle">Ask Before You Answer</div>
+      <div class="tk-quote">"The leader who always has the answer has a team that never develops one."</div>
+      <div class="tk-desc">GROW (Module C) applied to every interaction. One question before every answer. One coaching moment before every directive. The accumulation of these micro-choices builds a coaching culture over 90 days.</div>
+      <div class="tk-module">Modules C · D · E</div>
+    </div>
+    <div class="tk-card">
+      <div class="tk-num">03</div>
+      <div class="tk-icon">🔥</div>
+      <div class="tk-principle">Protect Your Deep Work</div>
+      <div class="tk-quote">"Reactive leaders produce reactive teams. Focused leaders produce focused cultures."</div>
+      <div class="tk-desc">Your calendar is your strategy made visible. If your most important work is not in it — protected, non-negotiable, and defended — then your most important work will not get done.</div>
+      <div class="tk-module">Module E — Personal Productivity</div>
+    </div>
+    <div class="tk-card featured">
+      <div class="tk-num">04</div>
+      <div class="tk-icon">🌱</div>
+      <div class="tk-principle">Delegate Up One Level — Always</div>
+      <div class="tk-quote">"The ceiling of your leadership is the floor you impose on your team."</div>
+      <div class="tk-desc">Every quarter, review your Delegation Canvas. Find three responsibilities currently at Levels 1–3 and move them up. Not because the team is ready — but because the act of moving unlocks readiness.</div>
+      <div class="tk-module">Module D · E</div>
+    </div>
+    <div class="tk-card">
+      <div class="tk-num">05</div>
+      <div class="tk-icon">🧩</div>
+      <div class="tk-principle">Build Complementary Teams</div>
+      <div class="tk-quote">"A team of nine identical thinkers is nine times weaker than one."</div>
+      <div class="tk-desc">Belbin's research (Module B) proves that role balance — not individual brilliance — determines team performance. Audit your team's profile quarterly. Address the gaps deliberately. Hire for what's missing.</div>
+      <div class="tk-module">Module B · D · E</div>
+    </div>
+    <div class="tk-card">
+      <div class="tk-num">06</div>
+      <div class="tk-icon">🎯</div>
+      <div class="tk-principle">Purpose Before Task</div>
+      <div class="tk-quote">"No one gives discretionary effort to a task. They give it to a mission."</div>
+      <div class="tk-desc">Every delegation conversation, every 1:1, every team meeting should begin with the why. Connect the task to the team's purpose, the customer's reality, or the organization's mission — before you discuss what or how.</div>
+      <div class="tk-module">Modules B · C · E</div>
+    </div>
+    <div class="tk-card featured">
+      <div class="tk-num">07</div>
+      <div class="tk-icon">🔄</div>
+      <div class="tk-principle">Model the Behavior First</div>
+      <div class="tk-quote">"Your team will become what they see you be — not what they hear you say."</div>
+      <div class="tk-desc">Psychological safety, coaching culture, execution discipline, empowerment — none of these can be mandated. All of them must be modeled. The leader's behavior is the most powerful culture-shaping tool available.</div>
+      <div class="tk-module">Modules B · C · D · E</div>
+    </div>
+    <div class="tk-card">
+      <div class="tk-num">08</div>
+      <div class="tk-icon">📈</div>
+      <div class="tk-principle">Measure What You Want to Move</div>
+      <div class="tk-quote">"What gets measured gets managed. What gets managed gets delivered."</div>
+      <div class="tk-desc">OKRs without scoreboards are wishes. Lead measures without tracking are theories. The 4DX Discipline 3 — a compelling, visible scoreboard — transforms the relationship between intention and execution.</div>
+      <div class="tk-module">Module E — Team Productivity</div>
+    </div>
+    <div class="tk-card">
+      <div class="tk-num">09</div>
+      <div class="tk-icon">🤝</div>
+      <div class="tk-principle">Trust as Execution Strategy</div>
+      <div class="tk-quote">"Low trust is not a culture problem. It is a performance tax — paid on every decision."</div>
+      <div class="tk-desc">Lencioni's research (Module B) and Edmondson's psychological safety work confirm: trust is not a value — it is a capability multiplier. Every investment in trust reduces the friction cost of every future interaction.</div>
+      <div class="tk-module">Modules B · C · D · E</div>
+    </div>
+    <div class="tk-card featured">
+      <div class="tk-num">10</div>
+      <div class="tk-icon">🚀</div>
+      <div class="tk-principle">The AGILE Leader as System Builder</div>
+      <div class="tk-quote">"The ultimate leadership act is building an organization that works brilliantly — even in your absence."</div>
+      <div class="tk-desc">A — Adaptive thinking. B — Belonging and trust. C — Coaching capability. D — Distributed authority. E — Execution discipline. Together, these five pillars create a leadership system that outlasts any individual leader and scales beyond any personal capacity. This is the AGILE legacy.</div>
+      <div class="tk-module">Complete AGILE A → E</div>
+    </div>
+  </div>
+
+  <!-- Programme Closing Quote -->
+  <div style="margin-top:5rem;padding:4rem;background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--e);text-align:center;position:relative;z-index:1;" class="fade-in">
+    <div style="font-family:var(--serif);font-size:clamp(1.5rem,2.5vw,2.2rem);font-style:italic;line-height:1.55;color:var(--text-1);max-width:800px;margin:0 auto 2rem;">"Leadership is not what you do when everyone is watching. It is the system you build — the trust you create, the questions you ask, the authority you distribute, and the culture you model — so that <span style="color:var(--e-light);">your team can deliver their best work with or without you in the room."</span></div>
+    <div style="font-family:var(--mono);font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-3);">AGILE Leadership Excellence Programme — Closing Principle</div>
+  </div>
+</section>
+
+<!-- ═══ LAB ═══ -->
+<section id="lab" class="sp-s">
+  <div class="section-header fade-in">
+    <div class="eyebrow">Personal Development Lab · Final Module</div>
+    <h2 class="section-title">The 90-Day<br><em>Execution Architecture</em></h2>
+  </div>
+  <div class="lab-grid fade-in">
+    <div class="lab-card"><div class="lc-bgn">01</div><div class="lc-phase">Days 1–30 · Foundation</div><div class="lc-title">Build the Personal System</div><ul><li>Complete the Personal Productivity Diagnostic — identify your lowest-scoring dimension.</li><li>Protect one 90-minute Deep Work block daily. Non-negotiable. Starting tomorrow.</li><li>Implement the Eat the Frog rule for 21 consecutive days. Track completion.</li><li>Set up a Personal Kanban with a 3-item WIP limit. Use it for one month.</li><li>Complete one AI tool adoption — choose from the execution stack based on your biggest time drain.</li><li>Define your personal WIG for this quarter — in one sentence.</li></ul></div>
+    <div class="lab-card"><div class="lc-bgn">02</div><div class="lc-phase">Days 31–60 · Team System</div><div class="lc-title">Build the Team System</div><ul><li>Launch a weekly execution rhythm with your team: 20-minute WIG session every Monday.</li><li>Create 3 OKRs for your team for the quarter — with measurable key results per OKR.</li><li>Build a visible execution scoreboard — shared with the full team.</li><li>Run the Team Motivation Diagnostic — identify the lowest-scoring dimension and act on it.</li><li>Hold one psychological safety conversation with your team — use Edmondson's 4 zones as a framework.</li></ul></div>
+    <div class="lab-card"><div class="lc-bgn">03</div><div class="lc-phase">Days 61–90 · Integration</div><div class="lc-title">Complete the AGILE System</div><ul><li>Review your Delegation Canvas — have any levels moved up? Move 3 more this quarter.</li><li>Run a full AGILE self-assessment across A→E: where is the system working? Where are the gaps?</li><li>Identify your highest-leverage development area across the 5 modules — design a 6-month focus plan.</li><li>Share your AGILE commitments with your team — model the vulnerability of ongoing growth.</li><li>Write your own Executive Takeaway: the one principle from this programme that changed how you lead.</li></ul></div>
+  </div>
+
+  <div style="margin-top:4rem;" class="fade-in">
+    <div class="lm" style="margin-bottom:1.5rem;">Final Reflection Protocols</div>
+    <div class="accordion">
+      <div class="accordion-item"><button class="at" onclick="toggleAcc(this)"><span class="at-label">The AGILE Integration Question — One per module</span><span class="at-icon">+</span></button><div class="ab"><p>Take 30 minutes alone with these five questions — one per AGILE module. Write the answers. (A) What situation in the last month required me to be more adaptive than I was — and what would I do differently? (B) Where in my team is belonging and trust most fragile — and what one action would strengthen it most? (C) Who on my team most needs a coaching conversation rather than a task conversation this week — and when will I have it? (D) What three decisions are still going through me that should be owned by my team — and what is stopping me from delegating them? (E) What is the single most important execution change I need to make in the next 30 days — and what is today's first step?</p></div></div>
+      <div class="accordion-item"><button class="at" onclick="toggleAcc(this)"><span class="at-label">The Team AGILE Mirror — A team conversation to close the programme</span><span class="at-icon">+</span></button><div class="ab"><p>Bring your team together for 60 minutes. Share the AGILE framework with them. Ask three questions collectively: (1) As a team, which of the five AGILE pillars is our strongest — and what evidence supports that? (2) Which pillar is our most underdeveloped — and what would be different if we strengthened it? (3) If we were to make one collective commitment to how we lead and work together, starting from this conversation — what would it be? This conversation creates shared language, shared accountability, and shared commitment. It is the most powerful closing ritual of the programme.</p></div></div>
+      <div class="accordion-item"><button class="at" onclick="toggleAcc(this)"><span class="at-label">The Legacy Question — Writing your leadership intent</span><span class="at-icon">+</span></button><div class="ab"><p>Spend 20 minutes writing a single page: "The kind of leader I intend to be." Not aspirational — concrete and behavioral. Include: how you will lead your next 1:1, how you will handle the next difficult decision, what you will do when the team is stuck, and what one thing you are committed to stopping because it limits the people around you. Share this with one trusted person. Revisit it in 90 days. The gap between who you intend to be and who you are is the most precise development plan you will ever create.</p></div></div>
+    </div>
+  </div>
+
+  <div class="commit-block fade-in">
+    <div class="cl-left">
+      <div style="font-family:var(--mono);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-3);margin-bottom:1rem;">Final Executive Commitment</div>
+      <h3>Your AGILE<br>Leadership Contract</h3>
+      <p>This is the final commitment of the AGILE Leadership Excellence Programme. Not a certificate of completion — a declaration of intent.</p>
+      <p>What you write here is the promise you are making to the people who depend on your leadership — the ones who will feel the impact of every choice you make after this programme ends.</p>
+      <div class="rc" style="margin-top:1.5rem;">
+        <div class="ri">🌟</div>
+        <p class="rq">"In 12 months — if I lead with full AGILE intention — what will be different about my team, and what will they say about my leadership?"</p>
+      </div>
+    </div>
+    <div class="cl-right">
+      <div class="ci-group"><label class="ci-lbl">The one AGILE principle I am committing to above all others</label><input type="text" class="ci-input" placeholder="e.g. Ask before I answer — replace my first instinct to solve with one coaching question."></div>
+      <div class="ci-group"><label class="ci-lbl">The specific behavior I am committing to stop — this week</label><input type="text" class="ci-input" placeholder="e.g. I will stop answering questions that my team is capable of answering themselves."></div>
+      <div class="ci-group"><label class="ci-lbl">My execution commitment — personal and team</label><textarea class="ci-input" rows="2" placeholder="e.g. Personal: Deep Work 90 min daily before 10am. Team: Weekly OKR pulse every Monday at 9am."></textarea></div>
+      <div class="ci-group"><label class="ci-lbl">The leader I am committed to becoming — described in 3 words</label><input type="text" class="ci-input" placeholder="e.g. Clear. Empowering. Present."></div>
+      <div class="ci-group"><label class="ci-lbl">What I will celebrate in 90 days as evidence this programme changed how I lead</label><textarea class="ci-input" rows="2" placeholder="e.g. My team makes 80% of decisions without needing my input. I leave the office with my frog eaten every day."></textarea></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="fb">Execution Excellence</div>
+    <p class="fsub">Module E — Final Module of the AGILE Leadership Excellence Framework. Completing: Adaptability · Belonging · Coaching · Delegation · Execution. Incorporating Eisenhower Matrix, Deep Work, OKRs, 4DX, Psychological Safety (Edmondson), Self-Determination Theory, Drive Model (Pink), Expectancy Theory, and AI Execution Stack.</p>
+  </div>
+  <div class="fn">
+    <a href="#block1">Personal Productivity</a><a href="#block2">Team Productivity</a>
+    <a href="#block3">Empowerment</a><a href="#block4">Team Motivation</a>
+    <a href="#block5">AI & Technology</a><a href="#takeaways">Executive Takeaways</a>
+    <a href="#lab">90-Day Lab</a><a href="#manifesto">Data & Evidence</a>
+  </div>
+</footer>
+<div class="fb-bottom">
+  <div class="fc">AGILE Leadership Excellence · Module E — Execution Excellence · Programme Complete A→E</div>
+  <div class="fc">Flagship Executive Edition</div>
+</div>
+
+<script>
+// Progress
+window.addEventListener('scroll',()=>{
+  const d=document.documentElement,s=window.scrollY,h=d.scrollHeight-d.clientHeight;
+  document.getElementById('progress-bar').style.width=(h>0?(s/h)*100:0)+'%';
+});
+// Fade
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.07});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+// Nav
+const sections=document.querySelectorAll('section[id]');
+const navLinks=document.querySelectorAll('nav a');
+window.addEventListener('scroll',()=>{
+  let cur='';sections.forEach(s=>{if(window.scrollY>=s.offsetTop-130)cur=s.id;});
+  navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+});
+// Accordion
+function toggleAcc(btn){
+  const item=btn.parentElement,open=item.classList.contains('open');
+  document.querySelectorAll('.accordion-item.open').forEach(i=>i.classList.remove('open'));
+  if(!open)item.classList.add('open');
+}
+
+// ── RENDER DIAGNOSTIC BUTTONS ──
+function renderDtBtns(){
+  [1,2,3,4,5].forEach(i=>{
+    const wrap=document.getElementById('dg'+i);
+    if(!wrap)return;
+    wrap.innerHTML='';
+    [1,2,3,4,5].forEach(v=>{
+      const btn=document.createElement('button');
+      btn.className='dt-btn';btn.textContent=v;
+      btn.onclick=()=>{
+        wrap.querySelectorAll('.dt-btn').forEach(b=>b.classList.remove('sel'));
+        btn.classList.add('sel');
+      };
+      wrap.appendChild(btn);
+    });
+  });
+}
+function renderMdBtns(){
+  [1,2,3,4,5].forEach(i=>{
+    const wrap=document.getElementById('md'+i);
+    if(!wrap)return;
+    wrap.innerHTML='';
+    [1,2,3,4,5].forEach(v=>{
+      const btn=document.createElement('button');
+      btn.className='md-btn';btn.textContent=v;
+      btn.onclick=()=>{
+        wrap.querySelectorAll('.md-btn').forEach(b=>b.classList.remove('sel'));
+        btn.classList.add('sel');
+      };
+      wrap.appendChild(btn);
+    });
+  });
+}
+renderDtBtns();renderMdBtns();
+
+// ── PERSONAL PRODUCTIVITY SCORE ──
+function scorePersonal(){
+  let total=0,count=0;
+  [1,2,3,4,5].forEach(i=>{
+    const sel=document.querySelector(`#dg${i} .dt-btn.sel`);
+    if(sel){total+=parseInt(sel.textContent);count++;}
+  });
+  if(count<5){alert('Please rate all 5 statements before generating your profile.');return;}
+  const avg=total/5;
+  let text='';
+  if(avg<=2)text='Your personal productivity profile is predominantly reactive — operating in Quadrants 1 and 3, with limited investment in deep, strategic work. The highest-leverage change: protect one 90-minute Deep Work block daily for the next 21 days. Nothing else changes until this is established. The Eisenhower Quadrant 2 is where your strategic impact lives — and right now, it is being crowded out by urgency.';
+  else if(avg<=3.2)text='Your productivity profile shows significant self-awareness but inconsistent execution. You know what Quadrant 2 work looks like — but it is not yet protected with the same discipline you apply to meetings and email. The key shift: move from intention to architecture. Block the Deep Work. Name the Frog. Limit the WIP. These three disciplines, applied for 30 days, will create a measurable shift in what you actually deliver versus what you intend to deliver.';
+  else if(avg<=4)text='Your productivity profile reflects strong foundations with room for mastery. You understand the principles — the gap is consistency under pressure. When urgency appears, your deep work blocks are the first thing sacrificed. Protect them instead by treating them as immovable as a board meeting. The additional opportunity: begin using one AI tool to eliminate your highest-volume shallow work category — this frees the remaining hours for Quadrant 2 excellence.';
+  else text='Your personal productivity profile is in the top tier — you protect focus time, prioritize strategically, and operate primarily in Quadrant 2. The next level: share these practices explicitly with your team. Model the Deep Work discipline visibly. Make Eat the Frog a team norm, not just a personal practice. The highest-performing leaders create execution cultures — not just personal productivity systems.';
+  const r=document.getElementById('dt-result');
+  document.getElementById('dt-result-text').textContent=text;
+  r.classList.add('show');r.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+// ── MOTIVATION SCORE ──
+function scoreMotivation(){
+  let total=0,count=0;
+  [1,2,3,4,5].forEach(i=>{
+    const sel=document.querySelector(`#md${i} .md-btn.sel`);
+    if(sel){total+=parseInt(sel.textContent);count++;}
+  });
+  if(count<5){alert('Please rate all 5 statements before generating your team profile.');return;}
+  const avg=total/5;
+  let text='';
+  if(avg<=2)text='Your team motivation profile reveals a significant gap between your team\'s current engagement state and their potential. The three most immediate actions: (1) Have a one-to-one conversation with each team member about purpose — ask "What about your work feels most meaningful?" and listen for 5 minutes before speaking. (2) Identify one person who has been operating without a genuine stretch challenge for more than 3 months — assign one today. (3) Run one psychological safety assessment using Edmondson\'s 4 zones — and discuss the result openly with the team. The baseline matters: you cannot address a motivation gap you haven\'t specifically located.';
+  else if(avg<=3.2)text='Your team motivation profile shows mixed results — some dimensions are working well while others are creating disengagement. The priority action: identify your lowest-scoring dimension (Purpose, Autonomy, Stretch, Safety, or Visibility of Progress) and focus there first. One targeted intervention per month, for three months, will create a measurable shift in team energy and discretionary effort. The most common low score for senior teams is Autonomy — teams often have high competence and high purpose, but low ownership of HOW they work. The Delegation Canvas (Module D) directly addresses this.';
+  else if(avg<=4)text='Your team motivation profile indicates a generally healthy environment with specific areas for optimization. Your team has the foundations — the opportunity is depth and sustainability. Move from reactive to proactive motivation: instead of addressing disengagement when it appears, build motivation architecture that prevents it. This means: formal development conversations quarterly, visible purpose connections in every delegation, and a recognition practice that fits each person\'s preferences rather than a one-size approach.';
+  else text='Your team motivation profile is in the high-performance range. The challenge at this level is maintenance and growth: motivated, high-performing teams can plateau if leaders stop investing in the conditions that created their performance. The risk to watch: high performers are often most sensitive to autonomy reduction — if organizational pressure increases centralisation, your best people will feel it first. Protect their autonomy as a strategic priority, not a nice-to-have.';
+  const r=document.getElementById('md-result');
+  document.getElementById('md-result-text').textContent=text;
+  r.classList.add('show');r.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+</body>
+</html>
